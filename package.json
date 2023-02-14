@@ -27,8 +27,10 @@
 		"eslint": "8.34.0",
 		"eslint-config-react-app": "7.0.1",
 		"eslint-plugin-jsx-a11y": "6.7.1",
+		"sass": "1.58.1",
 		"vite": "4.1.0",
 		"vite-plugin-eslint": "1.8.1",
+		"vite-plugin-svgr": "2.4.0",
 		"vitest": "0.28.5"
 	}
 }
