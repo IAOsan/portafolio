@@ -1,7 +1,21 @@
 .container {
-	margin: 0 auto;
 	max-width: pxToRem(1168);
-	padding: 0 pxToRem(24);
+	margin: 0 auto;
+	padding: pxToRem(24);
+}
+.row {
+	--rowGap: 1.6rem;
+	display: flex;
+	flex-flow: row wrap;
+	margin: calc(var(--rowGap) * -1);
+}
+[class*='col-'] {
+	--colSize: 12;
+	padding: var(--rowGap);
+	width: calc((100% / 12) * var(--colSize));
+}
+.hero {
+	padding: pxToRem(72);
 }
 .navbar {
 	height: pxToRem(72);
@@ -94,6 +108,14 @@
 }
 
 @include respond(992) {
+	.col-lg {
+		&-5 {
+			--colSize: 5;
+		}
+		&-7 {
+			--colSize: 7;
+		}
+	}
 	.navbar {
 		&__logo {
 			margin-right: pxToRem(72);

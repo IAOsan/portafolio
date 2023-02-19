@@ -18,6 +18,9 @@ body {
 	line-height: var(--line-height-r);
 	min-height: 100vh;
 }
+::selection {
+	background-color: var(--c-green-100);
+}
 /* make images easier to work with */
 img,
 picture {

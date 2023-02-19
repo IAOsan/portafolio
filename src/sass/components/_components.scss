@@ -3,13 +3,23 @@
 	border: none;
 	cursor: pointer;
 	transition: background-color var(--tr-time);
-}
-.btn:hover {
-	background-color: var(--hoverColor);
-}
-.btn:focus,
-.btn:active {
-	box-shadow: 0 0 0 var(--glow-size) var(--glowColor);
+	&:hover {
+		background-color: var(--hoverColor);
+	}
+	&:focus,
+	&:active {
+		box-shadow: 0 0 0 var(--glow-size) var(--glowColor);
+	}
+	&--default {
+		display: inline-block;
+		padding: pxToRem(12) pxToRem(24);
+	}
+	&--green {
+		--hoverColor: var(--c-green-700);
+		--glowColor: var(--c-green-100);
+		color: var(--c-light-500);
+		background-color: var(--c-green-500);
+	}
 }
 .icon {
 	--iconSize: var(--text-size);

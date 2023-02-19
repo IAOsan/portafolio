@@ -32,6 +32,28 @@ describe('<App />', () => {
 		it('should navbar cointains toggler', () => {
 			expect(navbarToggler()).toBeInTheDocument();
 		});
+		it('should display hero title', () => {
+			expect(
+				screen.queryByRole('heading', {
+					name: /Hola, mi nombre es Yaotzin Sanabria/i,
+				})
+			).toBeInTheDocument();
+		});
+		it('should display hero subtitle', () => {
+			expect(
+				screen.queryByRole('heading', {
+					name: /Frontend web developer/i,
+				})
+			).toBeInTheDocument();
+		});
+		it('should display hero contact button', () => {
+			expect(
+				screen.queryByRole('button', { name: /Contáctame/i })
+			).toBeInTheDocument();
+		});
+		it('should display hero illustration', () => {
+			expect(screen.queryByTestId('illustration')).toBeInTheDocument();
+		});
 	});
 
 	describe('INTERACTIVITY', () => {
