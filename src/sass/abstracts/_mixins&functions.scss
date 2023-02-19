@@ -1,0 +1,12 @@
+@mixin respond($breakpoint, $type: 'min-width') {
+	@if ($type == 'down') {
+		$type: 'max-width';
+	}
+	@media only screen and (#{$type}: #{calc($breakpoint / 16)}em) {
+		@content;
+	}
+}
+
+@function pxToRem($px) {
+	@return calc($px / 10) * 1rem;
+}

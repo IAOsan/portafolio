@@ -1,0 +1,58 @@
+.btn {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	transition: background-color var(--tr-time);
+}
+.btn:hover {
+	background-color: var(--hoverColor);
+}
+.btn:focus,
+.btn:active {
+	box-shadow: 0 0 0 var(--glow-size) var(--glowColor);
+}
+.icon {
+	--iconSize: var(--text-size);
+	display: inline-block;
+	width: var(--iconSize);
+	height: var(--iconSize);
+	margin-bottom: pxToRem(-4);
+	&--md {
+		--iconSize: 2rem;
+	}
+}
+.theme-switch {
+	position: relative;
+	width: pxToRem(70);
+	height: pxToRem(34);
+	user-select: none;
+	/* Hide the browser's default checkbox */
+	& input {
+		display: none;
+	}
+	&__icons {
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: var(--c-red-500);
+		padding: pxToRem(2) pxToRem(8);
+		border-radius: pxToRem(100);
+		transition: background-color var(--tr-time);
+	}
+	/* Creates the switch ball */
+	&__ball {
+		width: pxToRem(24);
+		height: pxToRem(24);
+		background-color: var(--c-light-500);
+		border-radius: 50%;
+		transform: translate(pxToRem(40), pxToRem(4));
+		transition: transform var(--tr-time) ease-in;
+	}
+	/* When the checkbox is checked, add a dark background and move ball to the left */
+	& input:checked ~ &__ball {
+		transform: translate(pxToRem(4), pxToRem(4));
+	}
+	& input:checked ~ &__icons {
+		background-color: var(--c-dark-500);
+	}
+}

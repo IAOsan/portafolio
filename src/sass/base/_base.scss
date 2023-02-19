@@ -41,6 +41,13 @@ textarea,
 select {
 	font: inherit;
 }
+a {
+	text-decoration: none;
+}
+main {
+	min-height: 100vh;
+}
+
 /* remove animations for people who've turned them off */
 @media (prefers-reduced-motion: reduce) {
 	*,
@@ -51,10 +58,4 @@ select {
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
 	}
-}
-a {
-	text-decoration: none;
-}
-main {
-	min-height: 100vh;
 }
