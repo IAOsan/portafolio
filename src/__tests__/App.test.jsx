@@ -54,6 +54,28 @@ describe('<App />', () => {
 		it('should display hero illustration', () => {
 			expect(screen.queryByTestId('illustration')).toBeInTheDocument();
 		});
+		it('should display technologies list', () => {
+			const list = screen.queryByTestId('technologies');
+			expect(list).toBeInTheDocument();
+			expect(list.childElementCount).toBe(6);
+		});
+		it('should display projects heading', () => {
+			expect(screen.queryByRole('heading', { name: /proyectos/i }));
+		});
+		it('should display project cards', () => {
+			const projects = document.querySelectorAll('.project-card');
+			expect(projects).toHaveLength(2);
+		});
+		// it('should display thumbnail for project card', () => {
+		// });
+		// it('should display project card title', () => {
+		// });
+		// it('should display project card technologies', () => {
+		// });
+		// it('should display project card code link', () => {
+		// });
+		// it('should display project card demo link', () => {
+		// });
 	});
 
 	describe('INTERACTIVITY', () => {

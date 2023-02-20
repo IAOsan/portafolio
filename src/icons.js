@@ -1,3 +1,9 @@
 export { ReactComponent as Logo } from './assets/logo.svg';
 export { ReactComponent as DayIcon } from './assets/day-icon.svg';
 export { ReactComponent as NightIcon } from './assets/night-icon.svg';
+export { ReactComponent as HtmlIcon } from './assets/html-logo.svg';
+export { ReactComponent as CssIcon } from './assets/css-logo.svg';
+export { ReactComponent as SassIcon } from './assets/sass-logo.svg';
+export { ReactComponent as BootstrapIcon } from './assets/bootstrap-logo.svg';
+export { ReactComponent as JsIcon } from './assets/js-logo.svg';
+export { ReactComponent as ReactIcon } from './assets/react-logo.svg';

@@ -17,6 +17,11 @@
 .hero {
 	padding: pxToRem(72);
 }
+.projects {
+	background-color: var(--c-light-600);
+	position: relative;
+	padding: pxToRem(188) 0 pxToRem(96) 0;
+}
 .navbar {
 	height: pxToRem(72);
 	background-color: var(--c-light-300);
@@ -87,7 +92,17 @@
 		}
 	}
 }
-
+.technologies {
+	display: inline-block;
+	padding: pxToRem(32);
+	background-color: var(--c-light-600);
+	position: absolute;
+	top: pxToRem(-74.8);
+	left: calc(50% - pxToRem(322));
+	& > *:not(:last-child) {
+		margin-right: pxToRem(20);
+	}
+}
 @include respond(992, 'down') {
 	.navbar {
 		&__nav--hidden {
@@ -106,7 +121,13 @@
 		}
 	}
 }
-
+@include respond(768) {
+	.col-md {
+		&-6 {
+			--colSize: 6;
+		}
+	}
+}
 @include respond(992) {
 	.col-lg {
 		&-5 {

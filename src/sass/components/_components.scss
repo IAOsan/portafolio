@@ -20,6 +20,18 @@
 		color: var(--c-light-500);
 		background-color: var(--c-green-500);
 	}
+	&--dark {
+		--hoverColor: var(--c-dark-700);
+		--glowColor: var(--c-dark-100);
+		color: var(--c-light-500);
+		background-color: var(--c-dark-500);
+	}
+	&--blue {
+		--hoverColor: var(--c-blue-700);
+		--glowColor: var(--c-blue-100);
+		color: var(--c-light-500);
+		background-color: var(--c-blue-500);
+	}
 }
 .icon {
 	--iconSize: var(--text-size);
@@ -29,6 +41,9 @@
 	margin-bottom: pxToRem(-4);
 	&--md {
 		--iconSize: 2rem;
+	}
+	&--display-3 {
+		--iconSize: 8rem;
 	}
 }
 .theme-switch {
@@ -64,5 +79,60 @@
 	}
 	& input:checked ~ &__icons {
 		background-color: var(--c-dark-500);
+	}
+}
+.project-card {
+	position: relative;
+	padding-bottom: pxToRem(120.1);
+	box-shadow: rgba(0, 0, 0, 0.16) 0 pxToRem(1) pxToRem(4);
+	overflow: hidden;
+	transition: padding var(--tr-time) ease-out;
+	&:hover {
+		padding-bottom: pxToRem(204.6);
+	}
+	&__thumbnail {
+		position: relative;
+		padding-top: 66%;
+		background-color: var(--c-dark-500);
+		overflow: hidden;
+		transition: padding var(--tr-time) ease-out;
+		& img {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform var(--tr-time) ease-out,
+				opacity var(--tr-time);
+		}
+	}
+	&:hover &__thumbnail {
+		padding-top: calc(66% - pxToRem(84.15));
+		& img {
+			transform: scale(1.2);
+			opacity: 0.6;
+		}
+	}
+	&__body {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: pxToRem(32) pxToRem(28);
+		background-color: var(--c-light-500);
+		transform: translateY(pxToRem(84.15));
+		transition: transform var(--tr-time) ease-out;
+	}
+	&:hover &__body {
+		transform: translateY(pxToRem(0));
+	}
+	&__btn {
+		opacity: 0;
+		transform: translateY(pxToRem(32));
+		transition: opacity var(--tr-time-sx1) 240ms, transform 560ms ease-out; //560
+	}
+	&:hover &__btn {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }

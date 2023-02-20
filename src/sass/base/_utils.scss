@@ -1,6 +1,9 @@
 .d-block {
 	display: block;
 }
+.d-inline-block {
+	display: inline-block;
+}
 .flex {
 	display: flex;
 }
@@ -11,20 +14,26 @@
 	height: 100%;
 }
 .m {
-	&l-auto {
-		margin-left: auto;
-	}
 	&-0 {
 		margin: 0;
 	}
+	&l-auto {
+		margin-left: auto;
+	}
 	&r-12 {
 		margin-right: pxToRem(12);
+	}
+	&r-32 {
+		margin-right: pxToRem(32);
 	}
 	&b-16 {
 		margin-bottom: pxToRem(16);
 	}
 	&b-32 {
 		margin-bottom: pxToRem(32);
+	}
+	&b-60 {
+		margin-bottom: pxToRem(60);
 	}
 }
 .color-light {
@@ -40,4 +49,7 @@
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap; /* added line */
 	border: 0;
+}
+.no-list-style {
+	list-style-type: none;
 }
