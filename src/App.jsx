@@ -134,6 +134,87 @@ function App() {
 						</div>
 					</div>
 				</section>
+				<section className='contact'>
+					<div className='container'>
+						<div className='row'>
+							<div className='col-lg-6'>
+								<h2 className='display-4 mb-60'>Contacto</h2>
+								<p data-testid='contact-desc'>
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Ab quidem numquam
+									excepturi corrupti praesentium reprehenderit
+									officiis officia veritatis reiciendis nam.
+								</p>
+							</div>
+							<div className='col-lg-6'>
+								<form className='form' data-testid='form'>
+									<div className='form__group'>
+										<input
+											className='form__control'
+											id='inputName'
+											name='name'
+											type='text'
+											placeholder='Nombre'
+											required
+										/>
+										<label
+											className='form__label'
+											htmlFor='inputName'
+										>
+											Nombre
+										</label>
+										<small className='form__feedback'>
+											Helper text
+										</small>
+									</div>
+									<div className='form__group'>
+										<input
+											className='form__control'
+											id='inputEmail'
+											name='email'
+											type='email'
+											placeholder='Correo'
+											required
+										/>
+										<label
+											className='form__label'
+											htmlFor='inputEmail'
+										>
+											Correo
+										</label>
+										<small className='form__feedback'>
+											Helper text
+										</small>
+									</div>
+									<div className='form__group'>
+										<textarea
+											className='form__control form__control--textarea'
+											name='message'
+											id='inputMessage'
+											placeholder='Mensaje'
+											required
+										></textarea>
+										<label
+											className='form__label'
+											htmlFor='inputMessage'
+										>
+											Mensaje
+										</label>
+										<small className='form__feedback'>
+											Helper text
+										</small>
+									</div>
+									<button
+										className='btn btn--default btn--block btn--red'
+										type='submit'
+									>
+										Enviar Mensaje
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</section>
 			</main>
 		</>
 	);

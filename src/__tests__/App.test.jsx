@@ -76,6 +76,47 @@ describe('<App />', () => {
 		// });
 		// it('should display project card demo link', () => {
 		// });
+		it('should display contact heading', () => {
+			expect(
+				screen.queryByRole('heading', { name: /contacto/i })
+			).toBeInTheDocument();
+		});
+		it('should display contact description', () => {
+			expect(screen.queryByTestId('contact-desc')).toBeInTheDocument();
+		});
+		it('should display contact form', () => {
+			expect(screen.queryByTestId('form')).toBeInTheDocument();
+		});
+		it('should display input for name in contact form', () => {
+			expect(
+				screen.queryByPlaceholderText(/nombre/i)
+			).toBeInTheDocument();
+		});
+		it('should input for name in contact form should be of type text', () => {
+			expect(screen.queryByPlaceholderText(/nombre/i).type).toBe('text');
+		});
+		it('should display input for email in contact form', () => {
+			expect(
+				screen.queryByPlaceholderText(/correo/i)
+			).toBeInTheDocument();
+		});
+		it('should input for email in contact form should be of type email', () => {
+			expect(screen.queryByPlaceholderText(/correo/i).type).toBe('email');
+		});
+		it('should display input for message in contact form', () => {
+			expect(
+				screen.queryByPlaceholderText(/mensaje/i)
+			).toBeInTheDocument();
+		});
+		it('should input for email in contact form should be of type textarea', () => {
+			expect(screen.queryByPlaceholderText(/mensaje/i).type).toBe('textarea');
+		});
+		it('should display submit button for contact form', () => {
+			expect(screen.queryByRole('button', {name: /enviar mensaje/i})).toBeInTheDocument();
+		});
+		it('should submit button for contact form be of type submit', () => {
+			expect(screen.queryByRole('button', {name: /enviar mensaje/i}).type).toBe('submit');
+		});
 	});
 
 	describe('INTERACTIVITY', () => {
