@@ -12,4 +12,5 @@ export default defineConfig({
 		reporters: 'verbose',
 		setupFiles: ['./setupJestDom.js'],
 	},
+	base: '/portfolio/',
 });
