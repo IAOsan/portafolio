@@ -109,13 +109,19 @@ describe('<App />', () => {
 			).toBeInTheDocument();
 		});
 		it('should input for email in contact form should be of type textarea', () => {
-			expect(screen.queryByPlaceholderText(/mensaje/i).type).toBe('textarea');
+			expect(screen.queryByPlaceholderText(/mensaje/i).type).toBe(
+				'textarea'
+			);
 		});
 		it('should display submit button for contact form', () => {
-			expect(screen.queryByRole('button', {name: /enviar mensaje/i})).toBeInTheDocument();
+			expect(
+				screen.queryByRole('button', { name: /enviar mensaje/i })
+			).toBeInTheDocument();
 		});
 		it('should submit button for contact form be of type submit', () => {
-			expect(screen.queryByRole('button', {name: /enviar mensaje/i}).type).toBe('submit');
+			expect(
+				screen.queryByRole('button', { name: /enviar mensaje/i }).type
+			).toBe('submit');
 		});
 	});
 
@@ -153,5 +159,12 @@ describe('<App />', () => {
 			);
 			expect(navbarToggler()).toHaveAttribute('aria-expanded', 'false');
 		});
+		// navigation between sections
+		// sticky navbar
+		// fab
+		// project buttons
+		// form vlidation
+		// form submitting
+		// form status modal
 	});
 });

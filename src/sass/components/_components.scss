@@ -1,160 +1,124 @@
 .btn {
+	border-radius: 0.4rem;
+	// box-shadow: var(--elevation-1);
+	display: inline-block;
 	outline: none;
 	border: none;
+	padding: pxToRem(12) pxToRem(24);
 	cursor: pointer;
-	transition: background-color var(--tr-time);
-	&:hover {
-		background-color: var(--hoverColor);
+	transition: background-color var(--tr-time) ease,
+		box-shadow var(--tr-time) ease;
+	&:hover:not(:disabled) {
+		background-color: var(--hoverBgColor);
 	}
-	&:focus,
+	&:focus-visible:not(:disabled) {
+		box-shadow: 0 0 0 var(--glow-size) var(--focusColor);
+	}
+	&:focus:not(:focus-visible) {
+		box-shadow: unset;
+	}
 	&:active {
-		box-shadow: 0 0 0 var(--glow-size) var(--glowColor);
+		background-color: var(--activeBgColor);
 	}
-	&--default {
-		display: inline-block;
-		padding: pxToRem(12) pxToRem(24);
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.7;
 	}
 	&--block {
 		display: block;
 		width: 100%;
 	}
-	&--green {
-		--hoverColor: var(--c-green-700);
-		--glowColor: var(--c-green-100);
+	&--blue {
+		--hoverBgColor: var(--c-blue-700);
+		--activeBgColor: var(--c-blue-400);
+		--focusColor: var(--c-blue-200);
+		background-color: var(--c-blue-600);
 		color: var(--c-light-500);
-		background-color: var(--c-green-500);
 	}
 	&--dark {
-		--hoverColor: var(--c-dark-700);
-		--glowColor: var(--c-dark-100);
+		--hoverBgColor: var(--c-dark-900);
+		--activeBgColor: var(--c-dark-400);
+		--focusColor: var(--c-dark-200);
+		background-color: var(--c-dark-600);
 		color: var(--c-light-500);
-		background-color: var(--c-dark-500);
 	}
-	&--blue {
-		--hoverColor: var(--c-blue-700);
-		--glowColor: var(--c-blue-100);
+	&--green {
+		--hoverBgColor: var(--c-green-700);
+		--activeBgColor: var(--c-green-300);
+		--focusColor: var(--c-green-200);
+		background-color: var(--c-green-500);
 		color: var(--c-light-500);
-		background-color: var(--c-blue-500);
 	}
 	&--red {
-		--hoverColor: var(--c-red-700);
-		--glowColor: var(--c-red-100);
-		color: var(--c-light-500);
+		--hoverBgColor: var(--c-red-700);
+		--activeBgColor: var(--c-red-400);
+		--focusColor: var(--c-red-200);
 		background-color: var(--c-red-500);
+		color: var(--c-light-500);
+	}
+	&--rounded {
+		border-radius: 10rem;
 	}
 }
 .icon {
-	--iconSize: var(--text-size);
+	--iconSize: 1em;
 	display: inline-block;
 	width: var(--iconSize);
 	height: var(--iconSize);
-	margin-bottom: pxToRem(-4);
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	&--inline {
+		position: relative;
+		top: 0.125em;
+	}
 	&--md {
 		--iconSize: 2rem;
 	}
-	&--display-3 {
-		--iconSize: 8rem;
+	&--2xl {
+		--iconSize: 3.2rem;
+	}
+	&--3xl {
+		--iconSize: 3.6rem;
 	}
 }
-.theme-switch {
-	position: relative;
-	width: pxToRem(70);
-	height: pxToRem(34);
-	user-select: none;
-	/* Hide the browser's default checkbox */
-	& input {
-		display: none;
-	}
-	&__icons {
-		position: absolute;
-		left: 0;
-		top: 0;
-		background-color: var(--c-red-500);
-		padding: pxToRem(2) pxToRem(8);
-		border-radius: pxToRem(100);
-		transition: background-color var(--tr-time);
-	}
-	/* Creates the switch ball */
-	&__ball {
-		width: pxToRem(24);
-		height: pxToRem(24);
-		background-color: var(--c-light-500);
-		border-radius: 50%;
-		transform: translate(pxToRem(40), pxToRem(4));
-		transition: transform var(--tr-time) ease-in;
-	}
-	/* When the checkbox is checked, add a dark background and move ball to the left */
-	& input:checked ~ &__ball {
-		transform: translate(pxToRem(4), pxToRem(4));
-	}
-	& input:checked ~ &__icons {
-		background-color: var(--c-dark-500);
-	}
-}
-.project-card {
-	position: relative;
-	padding-bottom: pxToRem(120.1);
-	box-shadow: rgba(0, 0, 0, 0.16) 0 pxToRem(1) pxToRem(4);
-	overflow: hidden;
-	transition: padding var(--tr-time) ease-out;
-	&:hover {
-		padding-bottom: pxToRem(204.6);
-	}
-	&__thumbnail {
-		position: relative;
-		padding-top: 66%;
-		background-color: var(--c-dark-500);
-		overflow: hidden;
-		transition: padding var(--tr-time) ease-out;
-		& img {
-			position: absolute;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			transition: transform var(--tr-time) ease-out,
-				opacity var(--tr-time);
-		}
-	}
-	&:hover &__thumbnail {
-		padding-top: calc(66% - pxToRem(84.15));
-		& img {
-			transform: scale(1.2);
-			opacity: 0.6;
-		}
-	}
-	&__body {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		padding: pxToRem(32) pxToRem(28);
-		background-color: var(--c-light-500);
-		transform: translateY(pxToRem(84.15));
-		transition: transform var(--tr-time) ease-out;
-	}
-	&:hover &__body {
-		transform: translateY(pxToRem(0));
-	}
-	&__btn {
+.fab {
+	--hoverBgColor: var(--c-yellow-600);
+	--activeBgColor: var(--c-yellow-700);
+	background-color: var(--c-yellow-500);
+	bottom: pxToRem(24);
+	border-radius: 50%;
+	color: var(--c-yellow-900);
+	height: pxToRem(60);
+	padding: pxToRem(7) 0;
+	position: fixed;
+	text-align: center;
+	right: pxToRem(24);
+	width: pxToRem(60);
+	transition: opacity var(--tr-time) ease-out,
+		visibility var(--tr-time) ease-out,
+		transform var(--tr-time) cubic-bezier(0.18, 0.89, 0.32, 1.27);
+	z-index: 500;
+	&.hidden {
 		opacity: 0;
-		transform: translateY(pxToRem(32));
-		transition: opacity var(--tr-time-sx1) 240ms, transform 560ms ease-out; //560
-	}
-	&:hover &__btn {
-		opacity: 1;
-		transform: translateY(0);
+		transform: scale(0.5);
+		visibility: hidden;
 	}
 }
 .form {
+	// border: 1px solid magenta;
+	margin: 0 auto;
 	&__group {
+		padding: 1.6rem 0;
 		position: relative;
-		padding-top: pxToRem(27.04);
-		&:not(:last-of-type) {
-			margin-bottom: pxToRem(16);
-		}
+		// padding-top: pxToRem(27.04);
+		// &:not(:last-of-type) {
+		// 	margin-bottom: pxToRem(16);
+		// }
 		&:last-of-type {
-			margin-bottom: pxToRem(36);
+			margin-bottom: pxToRem(32);
 		}
 	}
 	&__control {
@@ -163,16 +127,17 @@
 		padding: pxToRem(8) pxToRem(20);
 		background-color: transparent;
 		color: inherit;
-		border: pxToRem(2) solid var(--c-light-900);
+		border: pxToRem(2) solid var(--c-light-700);
+		border-radius: 0.4rem;
 		outline: none;
-		transition: border var(--tr-time) ease-out;
+		transition: border var(--tr-time) ease;
 		&:focus {
 			border: pxToRem(2) solid var(--c-blue-700);
 			box-shadow: 0 0 0 var(--glow-size) var(--c-blue-100);
 		}
-		&:valid {
-			border: pxToRem(2) solid var(--c-blue-700);
-		}
+		// &:valid {
+		// 	// border: pxToRem(2) solid var(--c-blue-700);
+		// }
 		&:disabled {
 			border: pxToRem(2) solid var(--c-light-700);
 			opacity: 0.5;
@@ -188,7 +153,7 @@
 				transform: translate(pxToRem(20), pxToRem(-140)) !important;
 			}
 		}
-		&--invalid {
+		&.invalid {
 			border: pxToRem(2) solid var(--c-red-700);
 			padding-right: pxToRem(68);
 			background: url('/src/assets/invalid-iconsvg.svg') no-repeat;
@@ -201,17 +166,14 @@
 			& + .form__label {
 				color: var(--c-red-700);
 			}
-			& ~ .form__feedback {
-				display: block;
-			}
 		}
 	}
 	&__label {
 		position: absolute;
 		font-size: var(--text-sm);
-		color: var(--c-blue-700);
+		color: var(--c-light-900);
 		transform: translate(pxToRem(20), pxToRem(-75.04));
-		transition: transform var(--tr-time-fx2) ease-in,
+		transition: transform var(--tr-time-fx2) ease-out,
 			opacity var(--tr-time-fx2), visibility var(--tr-time-fx2);
 	}
 	&__control:placeholder-shown + &__label {
@@ -221,9 +183,332 @@
 		transform: translate(pxToRem(20), pxToRem(-38.4));
 	}
 	&__feedback {
+		font-size: var(--text-sm);
+		margin-left: pxToRem(24);
+		margin-top: pxToRem(4);
+		&.invalid {
+			color: var(--c-red-700);
+		}
+	}
+}
+.modal {
+	animation: displayModal var(--tr-time) cubic-bezier(0.68, -0.55, 0.27, 1.55)
+		forwards;
+	background-color: var(--c-light-500);
+	border-radius: 0.4rem;
+	left: 50%;
+	position: fixed;
+	padding: pxToRem(44);
+	top: 50%;
+	transform: translate(-50%, -50%);
+	max-width: calc(pxToRem(720) + 12vw);
+	z-index: 5000;
+	&__close {
+		--hoverBgColor: var(--c-light-600);
+		--activeBgColor: var(--c-light-700);
+		background-color: var(--c-light-500);
+		border-radius: 50%;
+		color: var(--c-light-800);
+		height: 4rem;
+		padding: 0.4rem;
+		position: absolute;
+		top: 1.2rem;
+		right: 1.2rem;
+		width: 4rem;
+	}
+}
+.overlay {
+	animation: fade-in var(--tr-time-fx2) ease forwards;
+	background-color: rgba($color: #000000, $alpha: 0.8);
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+@supports (-webkit-backdrop-filter: blur(0.8rem)) or
+	(backdrop-filter: blur(0.8rem)) {
+	.overlay {
+		-webkit-backdrop-filter: blur(0.8rem);
+		backdrop-filter: blur(0.8rem);
+	}
+}
+.submit {
+	text-align: center;
+	&__icon-box {
+		border-radius: 50%;
+		height: 20rem;
+		line-height: 20rem;
+		margin: 0 auto 2.8rem auto;
+		padding: pxToRem(20);
+		width: 20rem;
+		&.success {
+			background-color: var(--c-green-100);
+		}
+		&.error {
+			background-color: var(--c-red-100);
+		}
+	}
+	&__icon {
+		--iconSize: 16rem;
+		&.success {
+			color: var(--c-green-400);
+		}
+		&.error {
+			color: var(--c-red-500);
+		}
+	}
+}
+.navbar {
+	height: pxToRem(72);
+	// background-color: var(--c-light-500);
+	width: 100%;
+	&__nav {
+		background-color: var(--c-light-600);
+		border-radius: 0.4rem;
+		position: absolute;
+		min-width: pxToRem(280);
+		opacity: 0;
+		padding: pxToRem(8);
+		right: 0;
+		// box-shadow: var(--elevation-2);
+		transform: scale(0.8);
+		transform-origin: 100% 0%;
+		transition: transform var(--tr-time) ease-out, opacity var(--tr-time),
+			visibility var(--tr-time);
+		top: pxToRem(76);
+		visibility: hidden;
+		&.visible {
+			opacity: 1;
+			transform: scale(1);
+			visibility: visible;
+		}
+	}
+	&__item {
+		display: block;
+	}
+	&__link {
+		border-radius: 0.4rem;
+		color: inherit;
+		display: block;
+		outline: none;
+		padding: pxToRem(12);
+		transition: background-color var(--tr-time) ease,
+			color var(--tr-time) ease, box-shadow var(--tr-time) ease;
+		&.active,
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: var(--c-yellow-500);
+			// box-shadow: var(--elevation-2);
+		}
+	}
+	&__toggler {
+		--hoverColor: var(--c-light-600);
+		--activeBgColor: var(--c-light-700);
+		--glowColor: var(--c-light-600);
+		border-radius: 0.4rem;
+		display: block;
+		width: pxToRem(60);
+		height: pxToRem(60);
+		margin: 0 0 0 pxToRem(12);
+		padding: 0;
+		position: relative;
+		background-color: transparent;
+	}
+	&__icon {
+		background-color: var(--c-dark-500);
+		display: block;
+		height: 0.8rem;
+		left: calc(50% - 37.5%);
+		top: calc(50% - 0.4rem);
+		position: absolute;
+		width: 75%;
+		&::before,
+		&::after {
+			content: '';
+			background-color: inherit;
+			display: block;
+			height: 100%;
+			transition: transform var(--tr-time);
+			width: 100%;
+		}
+		&::before {
+			transform: translateY(pxToRem(-12));
+		}
+		&::after {
+			transform: translateY(pxToRem(4));
+		}
+	}
+}
+.project-card {
+	border-radius: 0.4rem;
+	// box-shadow: var(--elevation-1);
+	overflow: hidden;
+	transition: box-shadow var(--tr-time) ease;
+	&__thumbnail {
+		background-color: var(--c-light-900);
+		position: relative;
+		padding-top: 66%; // 3/2
+		overflow: hidden;
+		transition: padding var(--tr-time) ease-out;
+		& img {
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform var(--tr-time) ease-out,
+				opacity var(--tr-time) ease;
+		}
+	}
+	&__body {
+		background-color: var(--c-light-500);
+		width: 100%;
+		padding: pxToRem(32) pxToRem(28);
+	}
+	&__btn {
+		// box-shadow: var(--elevation-2);
+		transition: background-color var(--tr-time) ease,
+			box-shadow var(--tr-time) ease, opacity var(--tr-time) 200ms ease;
+	}
+}
+.submit-overlay {
+	align-items: center;
+	background-color: rgba($color: #faf5e9, $alpha: 0.8);
+	-webkit-backdrop-filter: blur(0.8rem);
+	backdrop-filter: blur(0.8rem);
+	// border: 1px solid magenta;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	padding: pxToRem(32);
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 500;
+	&__icon-box {
+		border-radius: 50%;
+		color: var(--c-green-400);
+		height: pxToRem(140);
+		margin-bottom: 3.2rem;
+		outline: 1.2rem solid var(--c-green-400);
+		overflow: hidden;
+		width: pxToRem(140);
+	}
+	&__icon {
+		display: block;
+		height: 100%;
+		transform: scale(1.5);
+		width: 100%;
+	}
+}
+.theme-switch {
+	cursor: pointer;
+	display: block;
+	flex-shrink: 0;
+	height: pxToRem(40);
+	position: relative;
+	user-select: none;
+	width: pxToRem(68);
+	/* Hide the browser's default checkbox */
+	& input {
 		display: none;
-		margin-left: pxToRem(20);
-		margin-top: pxToRem(12);
-		color: var(--c-red-700);
+	}
+	&__icons {
+		position: absolute;
+		left: 0;
+		top: 0;
+		background-color: var(--c-red-500);
+		padding: pxToRem(8) pxToRem(12);
+		border-radius: pxToRem(100);
+		transition: background-color var(--tr-time);
+		width: 100%;
+		height: 100%;
+	}
+	/* Creates the switch ball */
+	&__ball {
+		// box-shadow: var(--elevation-1);
+		width: pxToRem(24);
+		height: pxToRem(24);
+		background-color: var(--c-light-500);
+		border-radius: 50%;
+		margin-top: 0.8rem;
+		transform: translate(pxToRem(36));
+		transition: transform var(--tr-time) ease-in;
+	}
+	/* When the checkbox is checked, add a dark background and move ball to the left */
+	& input:checked ~ &__ball {
+		transform: translate(pxToRem(8));
+	}
+	& input:checked ~ &__icons {
+		background-color: var(--c-dark-500);
+	}
+}
+
+@include respond(481) {
+	.form {
+		max-width: calc(pxToRem(375) + 12vw);
+	}
+}
+@include respond(992) {
+	.fab {
+		bottom: pxToRem(60);
+	}
+	.navbar {
+		&__logo {
+			margin-right: pxToRem(72);
+		}
+		&__nav {
+			background-color: unset;
+			box-shadow: unset;
+			opacity: unset;
+			transform: unset;
+			padding: 0;
+			position: static;
+			visibility: unset;
+			width: 100%;
+		}
+		&__item {
+			display: inline-block;
+			&:not(:last-child) {
+				margin-right: pxToRem(12);
+			}
+		}
+		&__link {
+		}
+		&__toggler {
+			display: none;
+		}
+	}
+	.project-card {
+		position: relative;
+		padding-bottom: pxToRem(120.1);
+		&:hover &__thumbnail {
+			& img {
+				transform: scale(1.1) translateY(-6rem);
+				opacity: 0.6;
+			}
+		}
+		&__body {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			transform: translateY(pxToRem(84.15));
+			transition: transform var(--tr-time) ease-out;
+		}
+		&:hover &__body {
+			transform: translateY(pxToRem(0));
+		}
+		&__btn {
+			opacity: 0;
+		}
+		&:hover &__btn {
+			opacity: 1;
+		}
 	}
 }

@@ -1,11 +1,23 @@
-export function getClasName(...str) {
+export function isString(value) {
+	return Object.prototype.toString.call(value) === '[object String]';
+}
+
+export function isNumber(value) {
+	return !isNaN(value);
+}
+
+export function isObject(value) {
+	return Object.prototype.toString.call(value) === '[object Object]';
+}
+
+export function getClassName(...str) {
 	return str
 		.reduce((acc, s) => {
 			if (!s) return acc;
 
-			const isAnString = typeof s === 'string' && isNaN(s);
-			const isANumber = typeof s === 'number' && !isNaN(s);
-			const isAnObject = typeof s === 'object' && !!Object.keys(s).length;
+			const isAnString = isString(s);
+			const isANumber = isNumber(s);
+			const isAnObject = isObject(s);
 
 			if (isAnString || isANumber) {
 				acc.push(s);
@@ -19,4 +31,8 @@ export function getClasName(...str) {
 			return acc;
 		}, [])
 		.join(' ');
+}
+
+export function getImageUrl(name) {
+	return new URL(`./assets/${name}`, import.meta.url).href;
 }
