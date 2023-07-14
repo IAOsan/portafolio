@@ -16,12 +16,12 @@ function Fab() {
 				timer.current = null;
 			}
 			timer.current = setTimeout(() => {
-				buttonRef.current.classList.toggle(
-					'hidden',
-					document.body.scrollHeight - window.innerWidth >
-						window.scrollY
-				);
-			}, 200);
+				const condition =
+					document.body.scrollHeight - window.innerHeight * 2 >
+					window.scrollY;
+
+				buttonRef.current.classList.toggle('hidden', condition);
+			}, 100);
 		}
 		window.addEventListener('scroll', handleScroll);
 
@@ -40,7 +40,7 @@ function Fab() {
 	return (
 		<Button
 			onClick={handleClick}
-			className='fab hidden'
+			className='fab bg-color-yellow-500 color-yellow-900 hidden'
 			type='button'
 			ref={buttonRef}
 		>

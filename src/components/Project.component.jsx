@@ -5,18 +5,20 @@ import LazyImage from './common/LazyImage.component';
 function Project({ thumbnail, title, stack, codeLink, demoLink }) {
 	return (
 		<article className='project-card'>
-			<div className='project-card__thumbnail'>
+			<div className='project-card__thumbnail bg-color-light-900'>
 				<LazyImage
 					src={thumbnail.fullSize}
 					fallback={thumbnail.fallback}
 				/>
 			</div>
-			<div className='project-card__body'>
+			<div className='project-card__body bg-color-light-500'>
 				<h3 className='h5'>{title.toUpperCase()}</h3>
-				<p className='mb-32'>{stack.join(' ').toUpperCase()}</p>
+				<p className='mb-32 color-light-800'>
+					{stack.join(' ').toUpperCase()}
+				</p>
 				<a
 					href={codeLink}
-					className='btn btn--default btn--dark mr-32 project-card__btn'
+					className='btn btn--dark mr-32 project-card__btn'
 					target='_blank'
 					rel='noreferrer'
 				>
@@ -24,7 +26,7 @@ function Project({ thumbnail, title, stack, codeLink, demoLink }) {
 				</a>
 				<a
 					href={demoLink}
-					className='btn btn--default btn--blue project-card__btn'
+					className='btn btn--blue project-card__btn'
 					target='_blank'
 					rel='noreferrer'
 				>

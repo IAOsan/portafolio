@@ -2,14 +2,14 @@
 @import 'abstracts/mixins&functions';
 @import 'abstracts/variables';
 // base
-@import 'base/normalize';
 @import 'base/base';
 @import 'base/animations';
 @import 'base/typography';
-@import 'base/utils';
 // layout
 @import 'layout/layout';
 // components
 @import 'components/components';
 // themes
 @import 'themes/themes';
+// utils
+@import 'base/utils';

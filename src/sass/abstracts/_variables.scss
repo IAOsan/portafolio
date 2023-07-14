@@ -80,12 +80,12 @@
 	--tr-time-fx2: 160ms;
 	--tr-time: 320ms;
 	--tr-time-sx1: 400ms;
-	--elevation-1: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-		rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-	--elevation-2: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-		rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-	--elevation-3: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
-		rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+	--elevation-1: rgba(0, 0, 0, 0.1) 0 0.4rem 0.6rem -0.1rem,
+		rgba(0, 0, 0, 0.06) 0 0.2rem 0.4rem -0.1rem;
+	--elevation-2: rgba(0, 0, 0, 0.1) 0 1rem 1.5rem -0.3rem,
+		rgba(0, 0, 0, 0.05) 0 0.4rem 0.6rem -0.2rem;
+	--elevation-3: rgba(0, 0, 0, 0.1) 0 2rem 2.5rem -0.5rem,
+		rgba(0, 0, 0, 0.04) 0 1rem 1rem -0.5rem;
 }
 
 @include respond(375) {

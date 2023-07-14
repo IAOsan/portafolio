@@ -46,7 +46,7 @@ function Header() {
 	}
 
 	return (
-		<header className='header' ref={headerRef}>
+		<header className='header bg-color-light-500' ref={headerRef}>
 			<Navbar>
 				<NavbarLogo href='/'>
 					<Logo aria-hidden='true' />
@@ -61,8 +61,9 @@ function Header() {
 						</NavItem>
 					))}
 				</Nav>
-				<ThemeSwitch />
+				{/* <ThemeSwitch /> */}
 				<NavbarToggler
+					className='ml-auto'
 					onClick={() => setIsNavVisible((prevState) => !prevState)}
 				/>
 			</Navbar>

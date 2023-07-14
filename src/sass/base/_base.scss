@@ -18,6 +18,9 @@ body {
 	line-height: var(--line-height-r);
 	min-height: 100vh;
 }
+::-moz-selection {
+	background-color: var(--c-green-100);
+}
 ::selection {
 	background-color: var(--c-green-100);
 }
@@ -57,7 +60,9 @@ main {
 	*,
 	*::before,
 	*::after {
+		-webkit-animation-duration: 0.01ms !important;
 		animation-duration: 0.01ms !important;
+		-webkit-animation-iteration-count: 1 !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;

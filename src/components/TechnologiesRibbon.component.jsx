@@ -11,7 +11,10 @@ import {
 
 function TechnologiesRibbon() {
 	return (
-		<ul className='no-list-style technologies' data-testid='technologies'>
+		<ul
+			className='technologies bg-color-light-600 color-light-800 no-list-style '
+			data-testid='technologies'
+		>
 			<li className='d-inline-block'>
 				<Icon className='technologies__icon'>
 					<HtmlIcon />

@@ -5,7 +5,7 @@ import { projects } from '../data';
 
 function Projects() {
 	return (
-		<section id='projects' className='projects'>
+		<section id='projects' className='projects bg-color-light-600'>
 			<div className='container'>
 				<TechnologiesRibbon />
 				<h2 className='display-4 mb-60'>Proyectos</h2>

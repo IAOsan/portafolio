@@ -21,23 +21,21 @@
 	padding: pxToRem(104) 0 pxToRem(120);
 }
 .projects {
-	background-color: var(--c-light-600);
 	position: relative;
-	// padding: pxToRem(188) 0 pxToRem(96) 0;
 	padding: pxToRem(96) 0 pxToRem(96) 0;
 }
 .contact {
-	// padding: pxToRem(120) 0;
 	padding: pxToRem(72) 0;
 }
 .header {
-	background-color: var(--c-light-500);
 	border-bottom: 0.2rem solid var(--c-light-600);
 	position: absolute;
 	transition: box-shadow var(--tr-time) ease;
 	width: 100%;
 	z-index: 500;
 	&.sticky {
+		-webkit-animation: slide-down var(--tr-time)
+			cubic-bezier(0.19, 1, 0.22, 1) forwards;
 		animation: slide-down var(--tr-time) cubic-bezier(0.19, 1, 0.22, 1)
 			forwards;
 		border-bottom: unset;
@@ -47,45 +45,13 @@
 		width: 100%;
 	}
 }
-@supports (-webkit-backdrop-filter: blur(0.8rem)) or
-	(backdrop-filter: blur(0.8rem)) {
+@supports (
+	(-webkit-backdrop-filter: blur(0.8rem)) or (backdrop-filter: blur(0.8rem))
+) {
 	.header.sticky {
 		background-color: rgba($color: #faf5e9, $alpha: 0.8);
 		-webkit-backdrop-filter: blur(0.8rem);
 		backdrop-filter: blur(0.8rem);
-	}
-}
-.technologies {
-	// border: 1px solid magenta;
-	// color: var(--c-light-800);
-	// display: inline-block;
-	// padding: pxToRem(32);
-	// background-color: var(--c-light-600);
-	// position: absolute;
-	// top: pxToRem(-74.8);
-	// left: calc(50% - pxToRem(322));
-	// & > *:not(:last-child) {
-	// 	margin-right: pxToRem(20);
-	// }
-	background-color: var(--c-light-600);
-	border-radius: 0.4rem;
-	// border: 1px solid magenta;
-	color: var(--c-light-800);
-	display: inline-block;
-	left: 50%;
-	padding: pxToRem(24);
-	position: absolute;
-	top: pxToRem(-52);
-	transform: translateX(-50%);
-	width: max-content;
-	// top: pxToRem(-74.8);
-	// left: calc(50% - pxToRem(322));
-	& > *:not(:last-child) {
-		margin-right: calc(pxToRem(4) + 1vw);
-	}
-	&__icon {
-		width: calc(pxToRem(24) + 6vw) !important;
-		height: calc(pxToRem(24) + 6vw) !important;
 	}
 }
 @include respond(480, both, 1200) {
@@ -97,22 +63,6 @@
 	}
 	.projects {
 		padding: pxToRem(96) calc(0.4rem + 4vw) pxToRem(96) calc(0.4rem + 4vw);
-	}
-}
-@include respond(480) {
-	.technologies {
-		&__icon {
-			width: calc(pxToRem(4) + 12vw) !important;
-			height: calc(pxToRem(4) + 12vw) !important;
-		}
-	}
-}
-@include respond(556) {
-	.technologies {
-		&__icon {
-			max-width: pxToRem(80);
-			max-height: pxToRem(80);
-		}
 	}
 }
 @include respond(768) {

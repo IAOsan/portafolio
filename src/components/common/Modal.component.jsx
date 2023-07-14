@@ -23,7 +23,7 @@ function Modal({ isOpen, onClose, children }) {
 
 	return (
 		<>
-			<div className='modal flex-ai-c flex-jc-c'>
+			<div className='modal flex-ai-c flex-jc-c bg-color-light-500'>
 				<Button
 					onClick={onClose}
 					className='modal__close'

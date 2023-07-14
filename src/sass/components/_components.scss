@@ -1,6 +1,5 @@
 .btn {
 	border-radius: 0.4rem;
-	// box-shadow: var(--elevation-1);
 	display: inline-block;
 	outline: none;
 	border: none;
@@ -87,10 +86,9 @@
 .fab {
 	--hoverBgColor: var(--c-yellow-600);
 	--activeBgColor: var(--c-yellow-700);
-	background-color: var(--c-yellow-500);
 	bottom: pxToRem(24);
 	border-radius: 50%;
-	color: var(--c-yellow-900);
+	box-shadow: var(--elevation-1);
 	height: pxToRem(60);
 	padding: pxToRem(7) 0;
 	position: fixed;
@@ -108,15 +106,10 @@
 	}
 }
 .form {
-	// border: 1px solid magenta;
 	margin: 0 auto;
 	&__group {
 		padding: 1.6rem 0;
 		position: relative;
-		// padding-top: pxToRem(27.04);
-		// &:not(:last-of-type) {
-		// 	margin-bottom: pxToRem(16);
-		// }
 		&:last-of-type {
 			margin-bottom: pxToRem(32);
 		}
@@ -135,9 +128,6 @@
 			border: pxToRem(2) solid var(--c-blue-700);
 			box-shadow: 0 0 0 var(--glow-size) var(--c-blue-100);
 		}
-		// &:valid {
-		// 	// border: pxToRem(2) solid var(--c-blue-700);
-		// }
 		&:disabled {
 			border: pxToRem(2) solid var(--c-light-700);
 			opacity: 0.5;
@@ -186,16 +176,15 @@
 		font-size: var(--text-sm);
 		margin-left: pxToRem(24);
 		margin-top: pxToRem(4);
-		&.invalid {
-			color: var(--c-red-700);
-		}
 	}
 }
 .modal {
+	-webkit-animation: displayModal var(--tr-time)
+		cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
 	animation: displayModal var(--tr-time) cubic-bezier(0.68, -0.55, 0.27, 1.55)
 		forwards;
-	background-color: var(--c-light-500);
 	border-radius: 0.4rem;
+	box-shadow: var(--elevation-2);
 	left: 50%;
 	position: fixed;
 	padding: pxToRem(44);
@@ -206,7 +195,6 @@
 	&__close {
 		--hoverBgColor: var(--c-light-600);
 		--activeBgColor: var(--c-light-700);
-		background-color: var(--c-light-500);
 		border-radius: 50%;
 		color: var(--c-light-800);
 		height: 4rem;
@@ -218,6 +206,7 @@
 	}
 }
 .overlay {
+	-webkit-animation: fade-in var(--tr-time-fx2) ease forwards;
 	animation: fade-in var(--tr-time-fx2) ease forwards;
 	background-color: rgba($color: #000000, $alpha: 0.8);
 	bottom: 0;
@@ -227,52 +216,26 @@
 	width: 100%;
 	z-index: 1000;
 }
-@supports (-webkit-backdrop-filter: blur(0.8rem)) or
-	(backdrop-filter: blur(0.8rem)) {
+@supports (
+	((-webkit-backdrop-filter: blur(0.8rem)) or (backdrop-filter: blur(0.8rem)))
+) {
 	.overlay {
 		-webkit-backdrop-filter: blur(0.8rem);
 		backdrop-filter: blur(0.8rem);
 	}
 }
-.submit {
-	text-align: center;
-	&__icon-box {
-		border-radius: 50%;
-		height: 20rem;
-		line-height: 20rem;
-		margin: 0 auto 2.8rem auto;
-		padding: pxToRem(20);
-		width: 20rem;
-		&.success {
-			background-color: var(--c-green-100);
-		}
-		&.error {
-			background-color: var(--c-red-100);
-		}
-	}
-	&__icon {
-		--iconSize: 16rem;
-		&.success {
-			color: var(--c-green-400);
-		}
-		&.error {
-			color: var(--c-red-500);
-		}
-	}
-}
 .navbar {
 	height: pxToRem(72);
-	// background-color: var(--c-light-500);
 	width: 100%;
 	&__nav {
 		background-color: var(--c-light-600);
 		border-radius: 0.4rem;
+		box-shadow: var(--elevation-1);
 		position: absolute;
 		min-width: pxToRem(280);
 		opacity: 0;
 		padding: pxToRem(8);
 		right: 0;
-		// box-shadow: var(--elevation-2);
 		transform: scale(0.8);
 		transform-origin: 100% 0%;
 		transition: transform var(--tr-time) ease-out, opacity var(--tr-time),
@@ -296,26 +259,24 @@
 		padding: pxToRem(12);
 		transition: background-color var(--tr-time) ease,
 			color var(--tr-time) ease, box-shadow var(--tr-time) ease;
-		&.active,
 		&:hover,
 		&:focus,
 		&:active {
 			background-color: var(--c-yellow-500);
-			// box-shadow: var(--elevation-2);
 		}
 	}
 	&__toggler {
 		--hoverColor: var(--c-light-600);
 		--activeBgColor: var(--c-light-700);
 		--glowColor: var(--c-light-600);
+		background-color: transparent;
 		border-radius: 0.4rem;
 		display: block;
 		width: pxToRem(60);
 		height: pxToRem(60);
-		margin: 0 0 0 pxToRem(12);
+		margin-left: auto;
 		padding: 0;
 		position: relative;
-		background-color: transparent;
 	}
 	&__icon {
 		background-color: var(--c-dark-500);
@@ -344,11 +305,9 @@
 }
 .project-card {
 	border-radius: 0.4rem;
-	// box-shadow: var(--elevation-1);
 	overflow: hidden;
 	transition: box-shadow var(--tr-time) ease;
 	&__thumbnail {
-		background-color: var(--c-light-900);
 		position: relative;
 		padding-top: 66%; // 3/2
 		overflow: hidden;
@@ -358,53 +317,51 @@
 			top: 0;
 			width: 100%;
 			height: 100%;
+			-o-object-fit: cover;
 			object-fit: cover;
 			transition: transform var(--tr-time) ease-out,
 				opacity var(--tr-time) ease;
 		}
 	}
 	&__body {
-		background-color: var(--c-light-500);
 		width: 100%;
 		padding: pxToRem(32) pxToRem(28);
 	}
 	&__btn {
-		// box-shadow: var(--elevation-2);
 		transition: background-color var(--tr-time) ease,
 			box-shadow var(--tr-time) ease, opacity var(--tr-time) 200ms ease;
 	}
 }
-.submit-overlay {
-	align-items: center;
-	background-color: rgba($color: #faf5e9, $alpha: 0.8);
-	-webkit-backdrop-filter: blur(0.8rem);
-	backdrop-filter: blur(0.8rem);
-	// border: 1px solid magenta;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	justify-content: center;
-	left: 0;
-	padding: pxToRem(32);
-	position: absolute;
+.submit-status {
 	text-align: center;
-	top: 0;
-	width: 100%;
-	z-index: 500;
+	min-width: pxToRem(200);
 	&__icon-box {
 		border-radius: 50%;
-		color: var(--c-green-400);
-		height: pxToRem(140);
-		margin-bottom: 3.2rem;
-		outline: 1.2rem solid var(--c-green-400);
-		overflow: hidden;
-		width: pxToRem(140);
+		height: 16rem;
+		margin: 0 auto 2.8rem auto;
+		padding: pxToRem(20);
+		width: 16rem;
 	}
 	&__icon {
-		display: block;
-		height: 100%;
-		transform: scale(1.5);
-		width: 100%;
+		--iconSize: 12rem;
+	}
+}
+.technologies {
+	border-radius: 0.4rem;
+	left: 50%;
+	padding: pxToRem(24);
+	position: absolute;
+	top: pxToRem(-52);
+	transform: translateX(-50%);
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	& > *:not(:last-child) {
+		margin-right: calc(pxToRem(4) + 1vw);
+	}
+	&__icon {
+		width: calc(pxToRem(24) + 6vw);
+		height: calc(pxToRem(24) + 6vw);
 	}
 }
 .theme-switch {
@@ -413,6 +370,9 @@
 	flex-shrink: 0;
 	height: pxToRem(40);
 	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	width: pxToRem(68);
 	/* Hide the browser's default checkbox */
@@ -432,7 +392,6 @@
 	}
 	/* Creates the switch ball */
 	&__ball {
-		// box-shadow: var(--elevation-1);
 		width: pxToRem(24);
 		height: pxToRem(24);
 		background-color: var(--c-light-500);
@@ -450,9 +409,25 @@
 	}
 }
 
+@include respond(480) {
+	.technologies {
+		&__icon {
+			width: calc(pxToRem(4) + 12vw);
+			height: calc(pxToRem(4) + 12vw);
+		}
+	}
+}
 @include respond(481) {
 	.form {
 		max-width: calc(pxToRem(375) + 12vw);
+	}
+}
+@include respond(556) {
+	.technologies {
+		&__icon {
+			max-width: pxToRem(80);
+			max-height: pxToRem(80);
+		}
 	}
 }
 @include respond(992) {
@@ -478,8 +453,6 @@
 			&:not(:last-child) {
 				margin-right: pxToRem(12);
 			}
-		}
-		&__link {
 		}
 		&__toggler {
 			display: none;

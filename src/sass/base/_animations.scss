@@ -1,9 +1,29 @@
+@-webkit-keyframes slide-down {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
 @keyframes slide-down {
 	0% {
 		transform: translateY(-100%);
 	}
 	100% {
 		transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes displayModal {
+	0% {
+		transform: translate(-50%, -50%) scale(0.8);
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
 	}
 }
 
@@ -17,7 +37,7 @@
 		transform: translate(-50%, -50%) scale(1);
 	}
 }
-@keyframes fade-in {
+@-webkit-keyframes fade-in {
 	0% {
 		opacity: 0;
 	}
@@ -25,11 +45,11 @@
 		opacity: 100;
 	}
 }
-@keyframes lds-ring {
+@keyframes fade-in {
 	0% {
-		transform: rotate(0deg);
+		opacity: 0;
 	}
 	100% {
-		transform: rotate(360deg);
+		opacity: 100;
 	}
 }

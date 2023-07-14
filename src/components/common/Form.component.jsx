@@ -62,8 +62,7 @@ export function FormControl({
 
 export function FormFeedback({ variant, className, message }) {
 	const variants = {
-		valid: 'form__feedback valid d-block',
-		invalid: 'form__feedback invalid d-block',
+		invalid: 'form__feedback color-red-700 d-block',
 	};
 
 	return message ? (
@@ -100,7 +99,7 @@ FormLabel.propTypes = {
 };
 
 FormFeedback.propTypes = {
-	variant: PropTypes.oneOf(['valid', 'invalid']).isRequired,
+	variant: PropTypes.oneOf(['invalid']).isRequired,
 	className: PropTypes.string,
 	message: PropTypes.string,
 };
