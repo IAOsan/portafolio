@@ -69,10 +69,9 @@ function Contact() {
 			setIsLoading(true);
 			setErrors({});
 			try {
-				// throw new Error();
-				// await emailService.send(values);
+				await emailService.send(values);
 				setFormStatus('success');
-				// reset();
+				reset();
 			} catch (error) {
 				setFormStatus('error');
 			} finally {
