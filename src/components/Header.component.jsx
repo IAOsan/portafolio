@@ -27,11 +27,10 @@ function Header() {
 		e.preventDefault();
 
 		const element = document.querySelector(e.target.hash);
-		const totalScroll = element.offsetHeight - element.offsetTop;
 
 		setIsNavVisible(false);
 		window.scrollTo({
-			top: totalScroll < 0 ? element.offsetTop : totalScroll,
+			top: element.offsetTop,
 			behavior: 'smooth',
 		});
 	}
