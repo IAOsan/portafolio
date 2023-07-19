@@ -36,3 +36,11 @@ export function getClassName(...str) {
 export function getImageUrl(name) {
 	return new URL(`./assets/${name}`, import.meta.url).href;
 }
+
+export function debounce(callback, tiempoDeEspera) {
+	let timeout;
+	return (...args) => {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => callback(...args), tiempoDeEspera);
+	};
+}

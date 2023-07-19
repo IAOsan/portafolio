@@ -4,26 +4,17 @@ import Nav, { NavItem, NavLink } from './common/Nav.component';
 // import ThemeSwitch from './common/ThemeSwitch.component';
 import { Logo } from '../icons';
 import { sections } from '../data';
+import { debounce } from '../utils';
 
 function Header() {
 	const [isNavVisible, setIsNavVisible] = useState(false);
 	const headerRef = useRef();
-	const timerRef = useRef();
+	const DEBOUNCE_TIME = 100;
 
 	useEffect(() => {
-		function handleScroll() {
-			if (timerRef.current) {
-				clearTimeout(timerRef.current);
-				timerRef.current = null;
-			}
-
-			timerRef.current = setTimeout(() => {
-				headerRef.current.classList.toggle(
-					'sticky',
-					window.scrollY > 150
-				);
-			}, 100);
-		}
+		const handleScroll = debounce(() => {
+			headerRef.current.classList.toggle('sticky', window.scrollY > 150);
+		}, DEBOUNCE_TIME);
 
 		window.addEventListener('scroll', handleScroll);
 

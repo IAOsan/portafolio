@@ -2,27 +2,22 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowUpIcon } from '../icons';
 import Button from './common/Button.component';
 import Icon from './common/Icon.component';
+import { debounce } from '../utils';
 
 function Fab() {
 	const buttonRef = useRef();
-	const timer = useRef();
+	const DEBOUNCE_TIME = 100;
 
 	useEffect(() => {
 		if (!buttonRef.current) return;
 
-		function handleScroll() {
-			if (timer.current) {
-				clearTimeout(timer.current);
-				timer.current = null;
-			}
-			timer.current = setTimeout(() => {
-				const condition =
-					document.body.scrollHeight - window.innerHeight * 2 >
-					window.scrollY;
+		const handleScroll = debounce(() => {
+			const condition =
+				document.body.scrollHeight - window.innerHeight * 2 >
+				window.scrollY;
 
-				buttonRef.current.classList.toggle('hidden', condition);
-			}, 100);
-		}
+			buttonRef.current.classList.toggle('hidden', condition);
+		}, DEBOUNCE_TIME);
 		window.addEventListener('scroll', handleScroll);
 
 		return () => {
