@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar, { NavbarLogo, NavbarToggler } from './common/Navbar.component';
 import Nav, { NavItem, NavLink } from './common/Nav.component';
-import ThemeSwitch from './common/ThemeSwitch.component';
+// import ThemeSwitch from './common/ThemeSwitch.component';
 import { Logo } from '../icons';
 import { sections } from '../data';
 

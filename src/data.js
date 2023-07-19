@@ -17,6 +17,39 @@ export const projects = [
 	{
 		id: 1,
 		thumbnail: {
+			fullSize: getImageUrl('bienes-raices-layout.png'),
+			fallback: getImageUrl('bienes-raices-layout-lazy.png'),
+		},
+		title: 'bienes raices layout',	
+		stack: ['bootstrap'],
+		codeLink: 'https://github.com/IAOsan/bienes-raices-layout/',
+		demoLink: 'https://iaosan.github.io/bienes-raices-layout/',
+	},
+	{
+		id: 2,
+		thumbnail: {
+			fullSize: getImageUrl('fiverr.png'),
+			fallback: getImageUrl('fiverr-lazy.png'),
+		},
+		title: 'fiverr layout',
+		stack: ['bootstrap', 'js'],
+		codeLink: 'https://github.com/IAOsan/frv-layout/',
+		demoLink: 'https://iaosan.github.io/frv-layout/',
+	},
+	{
+		id: 3,
+		thumbnail: {
+			fullSize: getImageUrl('spa.png'),
+			fallback: getImageUrl('spa-lazy.png'),
+		},
+		title: 'spa multipágina',
+		stack: ['bootstrap'],
+		codeLink: 'https://github.com/IAOsan/carolina-spa-layout/',
+		demoLink: 'https://iaosan.github.io/carolina-spa-layout/',
+	},
+	{
+		id: 4,
+		thumbnail: {
 			fullSize: getImageUrl('color-generator.png'),
 			fallback: getImageUrl('color-generator-lazy.png'),
 		},
@@ -26,7 +59,7 @@ export const projects = [
 		demoLink: 'https://iaosan.github.io/colors-generator/',
 	},
 	{
-		id: 2,
+		id: 5,
 		thumbnail: {
 			fullSize: getImageUrl('weather-app.png'),
 			fallback: getImageUrl('weather-app-lazy.png'),
@@ -37,7 +70,7 @@ export const projects = [
 		demoLink: 'https://iaosan.github.io/weather-app/',
 	},
 	{
-		id: 3,
+		id: 6,
 		thumbnail: {
 			fullSize: getImageUrl('todo-app.png'),
 			fallback: getImageUrl('todo-app-lazy.png'),
@@ -48,7 +81,7 @@ export const projects = [
 		demoLink: 'https://iaosan.github.io/todo-app/',
 	},
 	{
-		id: 4,
+		id: 7,
 		thumbnail: {
 			fullSize: getImageUrl('markdown-editor.png'),
 			fallback: getImageUrl('markdown-editor-lazy.png'),
