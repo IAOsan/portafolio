@@ -315,10 +315,10 @@
 		& img {
 			position: absolute;
 			top: 0;
-			width: 100%;
-			height: 100%;
-			-o-object-fit: cover;
-			object-fit: cover;
+			// width: 100%;
+			// height: 100%;
+			// -o-object-fit: cover;
+			// object-fit: cover;
 			transition: transform var(--tr-time) ease-out,
 				opacity var(--tr-time) ease;
 		}
