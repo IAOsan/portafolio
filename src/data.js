@@ -91,4 +91,15 @@ export const projects = [
 		codeLink: 'https://github.com/IAOsan/markdown-editor/',
 		demoLink: 'https://iaosan.github.io/markdown-editor/',
 	},
+	{
+		id: 8,
+		thumbnail: {
+			fullSize: getImageUrl('drawing-app.png'),
+			fallback: getImageUrl('drawing-app-lazy.png'),
+		},
+		title: 'drawing app',
+		stack: ['typescript', 'css'],
+		codeLink: 'https://github.com/IAOsan/drawing-app/',
+		demoLink: 'https://iaosan.github.io/drawing-app/',
+	},
 ];
