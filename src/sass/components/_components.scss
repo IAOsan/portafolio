@@ -259,10 +259,14 @@
 		padding: pxToRem(12);
 		transition: background-color var(--tr-time) ease,
 			color var(--tr-time) ease, box-shadow var(--tr-time) ease;
+		&.active,
 		&:hover,
-		&:focus,
-		&:active {
+		&:focus-visible {
 			background-color: var(--c-yellow-500);
+			color: var(--c-yellow-900);
+		}
+		&:active {
+			background-color: var(--c-yellow-700);
 		}
 	}
 	&__toggler {
@@ -315,8 +319,8 @@
 		& img {
 			position: absolute;
 			top: 0;
-			// width: 100%;
-			// height: 100%;
+			width: 100%;
+			height: auto;
 			// -o-object-fit: cover;
 			// object-fit: cover;
 			transition: transform var(--tr-time) ease-out,

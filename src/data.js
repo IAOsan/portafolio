@@ -3,12 +3,17 @@ import { getImageUrl } from './utils';
 export const sections = [
 	{
 		id: 1,
-		path: '/#projects',
-		label: 'Proyectos',
+		path: '#home',
+		label: 'Inicio',
 	},
 	{
 		id: 2,
-		path: '/#contact',
+		path: '#projects',
+		label: 'Proyectos',
+	},
+	{
+		id: 3,
+		path: '#contact',
 		label: 'Contacto',
 	},
 ];

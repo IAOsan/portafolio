@@ -5,7 +5,7 @@ import { getImageUrl } from '../utils';
 
 function Hero() {
 	return (
-		<section className='hero'>
+		<section id='home' className='hero'>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-8 col-lg-7'>
