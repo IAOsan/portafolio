@@ -1,15 +1,19 @@
-import React, { useLayoutEffect } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 function useEventListener(eventName, handler, element = window) {
-	useLayoutEffect(() => {
-		function evtHandler(e) {
-			handler(e);
-		}
+	const initialProps = useRef({
+		eventName,
+		handler,
+		element,
+	});
 
-		element.addEventListener(eventName, evtHandler);
+	useLayoutEffect(() => {
+		const { eventName, handler, element } = initialProps.current;
+
+		element.addEventListener(eventName, handler);
 
 		return () => {
-			element.removeEventListener(eventName, evtHandler);
+			element.removeEventListener(eventName, handler);
 		};
 	}, [eventName, handler, element]);
 }

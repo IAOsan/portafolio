@@ -1,18 +1,27 @@
-@mixin respond($breakpoint, $type: 'min', $secondBreakPoint: 0) {
-	@if ($type == 'min') {
-		@media only screen and (min-width: #{calc($breakpoint / 16)}em) {
+@mixin respond($width, $type: 'min-width') {
+	$width-em: calc(($width - 1) / 16);
+	@if $type == 'min-width' {
+		@media only screen and (min-width: #{$width-em}em) {
 			@content;
 		}
-	} @else if ($type == 'max') {
-		@media only screen and (max-width: #{calc($breakpoint / 16)}em) {
+	} @else if $type == 'max-width' {
+		@media only screen and (max-width: #{$width-em}em) {
 			@content;
 		}
-	} @else if ($type == 'both') {
-		@media only screen and (min-width: #{calc($breakpoint / 16)}em) and (max-width: #{calc($secondBreakPoint / 16)}em) {
+	} @else if $type == 'min-and-max' {
+		@media only screen and (min-width: #{$width-em}em) and (max-width: #{$width-em}em) {
 			@content;
 		}
 	} @else {
 		@error "Invalid media query type. Please use 'min', 'max', or 'both'.";
+	}
+}
+
+@mixin generate-css-variables($variables) {
+	:root {
+		@each $nombre, $valor in $variables {
+			--#{$nombre}: #{$valor};
+		}
 	}
 }
 

@@ -1,10 +1,15 @@
 .container {
-	max-width: pxToRem(1168);
 	margin: 0 auto;
-	padding: pxToRem(24);
+	padding: 0 pxToRem(40);
+	@include respond(556) {
+		max-width: 80%;
+	}
+	@include respond(768) {
+		max-width: pxToRem(1120);
+	}
 }
 .row {
-	--rowGap: 1.6rem;
+	--rowGap: 2rem;
 	display: flex;
 	flex-flow: row wrap;
 	margin: calc(var(--rowGap) * -1);
@@ -14,80 +19,156 @@
 	padding: var(--rowGap);
 	width: calc((100% / 12) * var(--colSize));
 }
+.col {
+	@include respond(768) {
+		&-md {
+			&-1 {
+				--colSize: 1;
+			}
+			&-2 {
+				--colSize: 2;
+			}
+			&-3 {
+				--colSize: 3;
+			}
+			&-4 {
+				--colSize: 4;
+			}
+			&-5 {
+				--colSize: 5;
+			}
+			&-6 {
+				--colSize: 6;
+			}
+			&-7 {
+				--colSize: 7;
+			}
+			&-8 {
+				--colSize: 8;
+			}
+			&-9 {
+				--colSize: 9;
+			}
+			&-10 {
+				--colSize: 10;
+			}
+			&-11 {
+				--colSize: 11;
+			}
+			&-12 {
+				--colSize: 12;
+			}
+		}
+	}
+	@include respond(992) {
+		&-lg {
+			&-1 {
+				--colSize: 1;
+			}
+			&-2 {
+				--colSize: 2;
+			}
+			&-3 {
+				--colSize: 3;
+			}
+			&-4 {
+				--colSize: 4;
+			}
+			&-5 {
+				--colSize: 5;
+			}
+			&-6 {
+				--colSize: 6;
+			}
+			&-7 {
+				--colSize: 7;
+			}
+			&-8 {
+				--colSize: 8;
+			}
+			&-9 {
+				--colSize: 9;
+			}
+			&-10 {
+				--colSize: 10;
+			}
+			&-11 {
+				--colSize: 11;
+			}
+			&-12 {
+				--colSize: 12;
+			}
+		}
+	}
+}
 .footer {
 	border-top: 0.2rem solid var(--c-light-600);
+	padding: 2.4rem 0;
 }
-.hero {
-	padding: pxToRem(104) 0 pxToRem(120);
+.about {
+	// opacity: 0;
+	// animation: slide-top 1.4s 0.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+	padding: pxToRem(104) 0 pxToRem(92);
+	&__image {
+		order: 1;
+	}
+	&__body {
+		order: 2;
+	}
+	@include respond(768) {
+		padding: pxToRem(160) 0 pxToRem(80);
+		&__image {
+			order: 2;
+		}
+		&__body {
+			order: 1;
+		}
+	}
+}
+.skills {
+	border-top: 0.2rem solid var(--c-light-600);
+	padding-top: pxToRem(64);
 }
 .projects {
-	position: relative;
-	padding: pxToRem(96) 0 pxToRem(96) 0;
+	// animation: aaa 1.4s 0.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+	padding: pxToRem(62) 0;
+	@include respond(768) {
+		padding: pxToRem(120) 0;
+	}
 }
 .contact {
-	padding: pxToRem(72) 0;
+	padding: pxToRem(62) 0;
+	@include respond(768) {
+		padding: pxToRem(120) 0;
+	}
 }
 .header {
+	//
+	// animation: slide-down 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+	//
 	border-bottom: 0.2rem solid var(--c-light-600);
 	position: absolute;
-	transition: box-shadow var(--tr-time) ease;
+	transition: padding ease var(--tr-time);
+	top: 0;
 	width: 100%;
-	z-index: 500;
+	z-index: var(--z-index-mid);
 	&.sticky {
-		-webkit-animation: slide-down var(--tr-time)
-			cubic-bezier(0.19, 1, 0.22, 1) forwards;
-		animation: slide-down var(--tr-time) cubic-bezier(0.19, 1, 0.22, 1)
+		background-color: rgba($color: #faf5e9, $alpha: 0.7);
+		-webkit-animation: slide-down var(--tr-time) cubic-bezier(0.19, 1, 0.22, 1)
 			forwards;
+		animation: slide-down var(--tr-time) cubic-bezier(0.19, 1, 0.22, 1) forwards;
 		border-bottom: unset;
 		box-shadow: var(--elevation-1);
+		padding: 0.8rem 0;
 		position: fixed;
-		top: 0;
-		width: 100%;
-	}
-}
-@supports (
-	(-webkit-backdrop-filter: blur(0.8rem)) or (backdrop-filter: blur(0.8rem))
-) {
-	.header.sticky {
-		background-color: rgba($color: #faf5e9, $alpha: 0.8);
-		-webkit-backdrop-filter: blur(0.8rem);
-		backdrop-filter: blur(0.8rem);
-	}
-}
-@include respond(480, both, 1200) {
-	.contact {
-		padding: pxToRem(72) calc(0.4rem + 4vw);
-	}
-	.hero {
-		padding: pxToRem(104) calc(0.4rem + 4vw) pxToRem(120) calc(0.4rem + 4vw);
-	}
-	.projects {
-		padding: pxToRem(96) calc(0.4rem + 4vw) pxToRem(96) calc(0.4rem + 4vw);
-	}
-}
-@include respond(768) {
-	.col-md {
-		&-4 {
-			--colSize: 4;
-		}
-		&-6 {
-			--colSize: 6;
-		}
-		&-8 {
-			--colSize: 8;
-		}
-	}
-}
-@include respond(992) {
-	.col-lg {
-		&-5 {
-			--colSize: 5;
-		}
-		&-6 {
-			--colSize: 6;
-		}
-		&-7 {
-			--colSize: 7;
+		@supports (
+			(
+				(-webkit-backdrop-filter: blur(0.8rem)) or
+					(backdrop-filter: blur(0.8rem))
+			)
+		) {
+			-webkit-backdrop-filter: blur(0.8rem);
+			backdrop-filter: blur(0.8rem);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { getClassName } from '../../utils';
 
-function Nav({ className, visible, children }) {
+function Nav({ className, visible, children, ...restProps }) {
 	const containerClassname = getClassName(
 		'navbar__nav',
 		{
@@ -10,7 +10,14 @@ function Nav({ className, visible, children }) {
 		{ visible: visible }
 	);
 
-	return <ul className={containerClassname}>{children}</ul>;
+	return (
+		<ul
+			{...restProps}
+			className={containerClassname}
+		>
+			{children}
+		</ul>
+	);
 }
 
 export function NavItem({ className, children }) {
@@ -26,7 +33,10 @@ export function NavLink({ className, children, ...restProps }) {
 	});
 
 	return (
-		<a {...restProps} className={containerClassname}>
+		<a
+			{...restProps}
+			className={containerClassname}
+		>
 			{children}
 		</a>
 	);

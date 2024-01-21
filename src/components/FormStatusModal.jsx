@@ -7,11 +7,14 @@ import { EmailSuccessIcon, EmailErrorIcon } from '../icons';
 
 function FormStatusModal({ isOpen, isSuccessful, onOpen }) {
 	return (
-		<Modal isOpen={isOpen} onClose={onOpen}>
-			<div className='submit-status'>
+		<Modal
+			isOpen={isOpen}
+			onClose={onOpen}
+		>
+			<div className='submit-status text-center'>
 				<div
 					className={getClassName(
-						'submit-status__icon-box',
+						'submit-status__icon-box rounded-circle mx-auto mb-28',
 						{
 							'bg-color-green-100': isSuccessful,
 						},
@@ -31,11 +34,7 @@ function FormStatusModal({ isOpen, isSuccessful, onOpen }) {
 							}
 						)}
 					>
-						{isSuccessful ? (
-							<EmailSuccessIcon />
-						) : (
-							<EmailErrorIcon />
-						)}
+						{isSuccessful ? <EmailSuccessIcon /> : <EmailErrorIcon />}
 					</Icon>
 				</div>
 				<h3 className='h3'>
@@ -43,10 +42,10 @@ function FormStatusModal({ isOpen, isSuccessful, onOpen }) {
 						? 'Gracias!, tu mensaje ha sido enviado'
 						: 'Lo siento, no fue posible enviar tu mensaje'}
 				</h3>
-				<p className='h5 color-light-900'>
+				<p className='h5'>
 					{isSuccessful
-						? 'Me pondre en contacto pronto.'
-						: 'Por favor, intentalo mas tarde.'}
+						? 'Me pondre en contacto pronto'
+						: 'Por favor, intentalo mas tarde'}
 				</p>
 			</div>
 		</Modal>

@@ -6,10 +6,8 @@ function Footer() {
 		<footer className='footer'>
 			<div className='container flex flex-ai-c'>
 				<p className='font-heading mr-32'>YaoSan</p>
-				<SocialList />
-				<p className='ml-auto'>
-					{new Date().getFullYear()} | Made with ❤
-				</p>
+				<SocialList size='sm' />
+				<p className='ml-auto'>{new Date().getFullYear()} | Made with ❤</p>
 			</div>
 		</footer>
 	);

@@ -60,7 +60,7 @@
 	--c-dark-800: #161e1f;
 	--c-dark-900: #111718;
 	--text-size: 1.8rem;
-	--text-base-size: 52.0833%; //15px
+	--text-base-size: 41.67%; //12px
 	--text-scale: 1.2;
 	--text-sm: calc(var(--text-size) / var(--text-scale));
 	--text-md: calc(var(--text-size) * var(--text-scale));
@@ -76,6 +76,10 @@
 	--font-weight-b: 700;
 	--line-height-r: 1.6;
 	--line-height-s: 1.2;
+	--z-index-low: 50;
+	--z-index-mid: 100;
+	--z-index-high: 200;
+	--z-index-highest: 400;
 	--glow-size: 0.6rem;
 	--tr-time-fx2: 160ms;
 	--tr-time: 320ms;
@@ -93,12 +97,12 @@
 		--text-base-size: 55.5556%; //16px
 	}
 }
-@include respond(556) {
+@include respond(992) {
 	:root {
 		--text-scale: 1.25;
 	}
 }
-@include respond(1440) {
+@include respond(1400) {
 	:root {
 		--text-base-size: 62.5%; //18px
 	}

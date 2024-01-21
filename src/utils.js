@@ -44,3 +44,44 @@ export function debounce(callback, tiempoDeEspera) {
 		timeout = setTimeout(() => callback(...args), tiempoDeEspera);
 	};
 }
+
+export function throttle(callback, wait) {
+	let timeout = null;
+
+	return (...args) => {
+		if (timeout) return;
+
+		timeout = setTimeout(() => {
+			timeout = null;
+		}, wait);
+
+		return callback(...args);
+	};
+}
+
+export function filterKeyEnter(handler) {
+	return (e) => {
+		// escape key
+		if (e.keyCode === 27) {
+			handler(e);
+		}
+	};
+}
+
+export function accessibleOnClick(handler, tabIndex = 0) {
+	return {
+		role: 'button',
+		tabIndex,
+		onKeyDown: filterKeyEnter(handler),
+		onClick: handler,
+	};
+}
+
+export function navigateToElement(id, offset = 50) {
+	const element = document.querySelector(id);
+
+	window.scrollTo({
+		top: element.offsetTop - offset,
+		behavior: 'smooth',
+	});
+}

@@ -1,42 +1,46 @@
 import React, { useEffect } from 'react';
 import Button from './Button.component';
 import Icon from './Icon.component';
+import useEventListener from '../../hooks/useEventListener';
+import { accessibleOnClick } from '../../utils';
 import { CloseIcon } from '../../icons';
 
 function Modal({ isOpen, onClose, children }) {
-	useEffect(() => {
-		const handleCloseOnEscapeKey = (e) =>
-			e.key === 'Escape' ? onClose() : null;
+	useEventListener('keydown', handleModalClose);
 
-		document.body.addEventListener('keydown', handleCloseOnEscapeKey);
-		return () => {
-			document.body.removeEventListener(
-				'keydown',
-				handleCloseOnEscapeKey
-			);
-		};
-	}, [onClose]);
+	useEffect(() => {
+		document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+	}, [isOpen]);
+
+	function handleModalClose(e) {
+		if (e.key === 'Escape') {
+			onClose();
+		}
+	}
 
 	if (!isOpen) {
 		return null;
 	}
 
 	return (
-		<>
-			<div className='modal flex-ai-c flex-jc-c bg-color-light-500'>
+		<div>
+			<div className='modal rounded bg-color-light-500'>
 				<Button
 					onClick={onClose}
-					className='modal__close'
+					className='btn modal__close'
 					type='button'
 				>
-					<Icon size='2xl'>
+					<Icon inline>
 						<CloseIcon />
 					</Icon>
 				</Button>
 				{children}
 			</div>
-			<div className='overlay'></div>
-		</>
+			<div
+				{...accessibleOnClick(onClose)}
+				className='overlay'
+			></div>
+		</div>
 	);
 }
 

@@ -16,12 +16,16 @@ const Button = React.forwardRef(
 			{ 'btn--block': block },
 			{ [className]: className },
 			{
-				'btn--rounded': rounded,
+				'rounded-pill': rounded,
 			}
 		);
 
 		return (
-			<button className={containerClassname} {...restProps} ref={ref}>
+			<button
+				className={containerClassname}
+				{...restProps}
+				ref={ref}
+			>
 				{children}
 			</button>
 		);

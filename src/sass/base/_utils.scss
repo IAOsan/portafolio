@@ -28,9 +28,26 @@
 	&-inline-block {
 		display: inline-block;
 	}
+	@include respond(768) {
+		&-md {
+			&-none {
+				display: none;
+			}
+		}
+	}
+	@include respond(992) {
+		&-lg {
+			&-none {
+				display: none;
+			}
+		}
+	}
 }
 .flex {
 	display: flex;
+	&-column {
+		flex-direction: column;
+	}
 	&-ai-c {
 		align-items: center;
 	}
@@ -39,6 +56,11 @@
 	}
 	&-jc-sb {
 		justify-content: space-between;
+	}
+	@include respond(768) {
+		&-md {
+			display: flex;
+		}
 	}
 }
 .float {
@@ -81,37 +103,94 @@
 	&-0 {
 		margin: 0;
 	}
+	&y {
+		&-40 {
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+		}
+	}
+	&x {
+		&-auto {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 	&l-auto {
 		margin-left: auto;
 	}
-	&r-12 {
-		margin-right: pxToRem(12);
+	&r {
+		&-12 {
+			margin-right: pxToRem(12);
+		}
+		&-16 {
+			margin-right: pxToRem(16);
+		}
+		&-24 {
+			margin-right: pxToRem(24);
+		}
+		&-32 {
+			margin-right: pxToRem(32);
+		}
+		&-44 {
+			margin-right: pxToRem(44);
+		}
 	}
-	&r-24 {
-		margin-right: pxToRem(24);
+	@include respond(992) {
+		&r-lg {
+			&-16 {
+				margin-right: pxToRem(16);
+			}
+		}
 	}
-	&r-32 {
-		margin-right: pxToRem(32);
-	}
-	&r-44 {
-		margin-right: pxToRem(44);
-	}
-	&b-4 {
-		margin-bottom: pxToRem(4);
-	}
-	&b-16 {
-		margin-bottom: pxToRem(16);
-	}
-	&b-32 {
-		margin-bottom: pxToRem(32);
-	}
-	&b-60 {
-		margin-bottom: pxToRem(60);
+	&b {
+		&-4 {
+			margin-bottom: pxToRem(4);
+		}
+		&-8 {
+			margin-bottom: pxToRem(8);
+		}
+		&-16 {
+			margin-bottom: pxToRem(16);
+		}
+		&-28 {
+			margin-bottom: pxToRem(28);
+		}
+		&-32 {
+			margin-bottom: pxToRem(32);
+		}
+		&-60 {
+			margin-bottom: pxToRem(60);
+		}
+		&-64 {
+			margin-bottom: pxToRem(64);
+		}
 	}
 }
-.pos {
-	&-rel {
-		position: relative;
+.p {
+	&x {
+		&-12 {
+			padding-left: pxToRem(12);
+			padding-right: pxToRem(12);
+		}
+		&-20 {
+			padding-left: pxToRem(20);
+			padding-right: pxToRem(20);
+		}
+	}
+	&y {
+		&-8 {
+			padding-top: pxToRem(8);
+			padding-bottom: pxToRem(8);
+		}
+	}
+}
+.rounded {
+	border-radius: 0.4rem;
+	&-pill {
+		border-radius: 10rem;
+	}
+	&-circle {
+		border-radius: 50%;
 	}
 }
 .sr-only {
@@ -129,7 +208,17 @@
 	&-center {
 		text-align: center;
 	}
+	&-justify {
+		text-align: justify;
+	}
+	@include respond(768) {
+		&-md {
+			&-left {
+				text-align: left;
+			}
+		}
+	}
 }
-.no-list-style {
-	list-style-type: none;
-}
+// .no-list-style {
+// 	list-style-type: none;
+// }

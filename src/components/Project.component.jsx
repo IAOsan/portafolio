@@ -4,7 +4,7 @@ import LazyImage from './common/LazyImage.component';
 
 function Project({ thumbnail, title, stack, codeLink, demoLink }) {
 	return (
-		<article className='project-card'>
+		<article className='project-card rounded'>
 			<div className='project-card__thumbnail bg-color-light-900'>
 				<LazyImage
 					src={thumbnail.fullSize}
@@ -12,26 +12,28 @@ function Project({ thumbnail, title, stack, codeLink, demoLink }) {
 				/>
 			</div>
 			<div className='project-card__body bg-color-light-500'>
-				<h3 className='h5'>{title.toUpperCase()}</h3>
-				<p className='mb-32 color-light-800'>
-					{stack.join(' ').toUpperCase()}
-				</p>
-				<a
-					href={codeLink}
-					className='btn btn--dark mr-32 project-card__btn'
-					target='_blank'
-					rel='noreferrer'
-				>
-					Código
-				</a>
-				<a
-					href={demoLink}
-					className='btn btn--blue project-card__btn'
-					target='_blank'
-					rel='noreferrer'
-				>
-					Demo
-				</a>
+				<h3 className='h5 mb-4'>{title.toUpperCase()}</h3>
+				<p className='mb-32 color-light-800'>{stack.join(' ').toUpperCase()}</p>
+				<div className='flex flex-ai-c'>
+					<a
+						href={codeLink}
+						className='btn btn--dark btn--block text-center mr-32 project-card__btn'
+						target='_blank'
+						rel='noreferrer'
+						aria-label={`Enlace al código del proyecto "${title}"`}
+					>
+						Código
+					</a>
+					<a
+						href={demoLink}
+						className='btn btn--blue btn--block text-center project-card__btn'
+						target='_blank'
+						rel='noreferrer'
+						aria-label={`Enlace a la demostración en vivo del proyecto "${title}"`}
+					>
+						Demo
+					</a>
+				</div>
 			</div>
 		</article>
 	);

@@ -9,6 +9,7 @@ import Form, {
 import FormStatusModal from './FormStatusModal';
 import { contactSchema } from '../validation/schemas';
 import emailService, { apiUrl } from '../services/email.service';
+import { contactDescription } from '../data';
 
 function Contact() {
 	const [formValues, setFormValues] = useState({
@@ -31,7 +32,7 @@ function Contact() {
 				type,
 			} = err;
 			const types = {
-				'string.empty': 'Por favor, rellena este campo',
+				'string.empty': 'Por favor, llena este campo',
 				'string.email': 'Por favor, ingresa un email válido',
 				'string.min': `Este campo debe contener al menos ${context.limit} caracteres`,
 			};
@@ -82,19 +83,22 @@ function Contact() {
 	}
 
 	return (
-		<section id='contact' className='contact'>
+		<section
+			id='contact'
+			className='contact'
+		>
 			<div className='container'>
 				<div className='row'>
 					<div className='col-md-6'>
 						<h2 className='display-4 mb-60'>Contacto</h2>
-						<p data-testid='contact-desc'>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Ab quidem numquam excepturi corrupti
-							praesentium reprehenderit officiis officia veritatis
-							reiciendis nam.
+						<p
+							data-testid='contact-desc'
+							className='text-justify'
+						>
+							{contactDescription}
 						</p>
 					</div>
-					<div className='col-md-6 pos-rel'>
+					<div className='col-md-6'>
 						<Form
 							onSubmit={handleSubmit}
 							action={apiUrl}
@@ -113,9 +117,7 @@ function Contact() {
 									value={formValues.name}
 									error={errors.name}
 								/>
-								<FormLabel htmlFor='inputName'>
-									Nombre
-								</FormLabel>
+								<FormLabel htmlFor='inputName'>Nombre</FormLabel>
 								<FormFeedback
 									variant='invalid'
 									message={errors.name}
@@ -131,9 +133,7 @@ function Contact() {
 									value={formValues.email}
 									error={errors.email}
 								/>
-								<FormLabel htmlFor='inputEmail'>
-									Correo
-								</FormLabel>
+								<FormLabel htmlFor='inputEmail'>Correo</FormLabel>
 								<FormFeedback
 									variant='invalid'
 									message={errors.email}
@@ -149,9 +149,7 @@ function Contact() {
 									value={formValues.message}
 									error={errors.message}
 								/>
-								<FormLabel htmlFor='inputMessage'>
-									Mensaje
-								</FormLabel>
+								<FormLabel htmlFor='inputMessage'>Mensaje</FormLabel>
 								<FormFeedback
 									variant='invalid'
 									message={errors.message}
@@ -163,7 +161,7 @@ function Contact() {
 								type='submit'
 								disabled={isLoading}
 							>
-								Enviar Mensaje
+								<b>Enviar Mensaje</b>
 							</Button>
 						</Form>
 						<FormStatusModal
