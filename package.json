@@ -4,6 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"seed": "node seed.js",
 		"predeploy": "yarn build",
 		"deploy": "gh-pages -d dist",
 		"dev": "vite",
@@ -13,6 +14,7 @@
 		"test:once": "vitest --run"
 	},
 	"dependencies": {
+		"firebase": "10.7.2",
 		"joi": "17.7.1",
 		"prop-types": "15.8.1",
 		"react": "18.2.0",

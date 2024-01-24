@@ -9,9 +9,10 @@ import Form, {
 import FormStatusModal from './FormStatusModal';
 import { contactSchema } from '../validation/schemas';
 import emailService, { apiUrl } from '../services/email.service';
-import { contactDescription } from '../data';
+import { useAppContext } from '../context/App.context';
 
 function Contact() {
+	const { contactDescription } = useAppContext();
 	const [formValues, setFormValues] = useState({
 		name: '',
 		email: '',

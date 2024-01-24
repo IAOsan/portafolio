@@ -20,11 +20,18 @@ function Nav({ className, visible, children, ...restProps }) {
 	);
 }
 
-export function NavItem({ className, children }) {
+export function NavItem({ className, children, ...restProps }) {
 	const containerClassname = getClassName('navbar__item', {
 		[className]: className,
 	});
-	return <li className={containerClassname}>{children}</li>;
+	return (
+		<li
+			{...restProps}
+			className={containerClassname}
+		>
+			{children}
+		</li>
+	);
 }
 
 export function NavLink({ className, children, ...restProps }) {

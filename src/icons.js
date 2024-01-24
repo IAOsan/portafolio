@@ -1,5 +1,7 @@
 export { ReactComponent as Logo } from './assets/logo.svg';
 export { ReactComponent as GithubIcon } from './assets/github-icon.svg';
+export { ReactComponent as TwitterIcon } from './assets/twitter-icon.svg';
+export { ReactComponent as XIcon } from './assets/x-icon.svg';
 export { ReactComponent as LinkedinIcon } from './assets/linkedin-icon.svg';
 export { ReactComponent as ArrowUpIcon } from './assets/arrow-up-icon.svg';
 export { ReactComponent as CloseIcon } from './assets/close-icon.svg';

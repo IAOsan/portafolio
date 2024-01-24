@@ -10,8 +10,15 @@ function LazyImage({ fallback, src, alt, className, ...restProps }) {
 			if (!entry.isIntersecting) return;
 
 			// change src
-			entry.target.src = src;
-			observer.unobserve(entry.target);
+			const largeImg = new Image();
+			const img = entry.target;
+			largeImg.src = src;
+
+			largeImg.onload = () => {
+				img.src = src;
+				img.classList.remove('lazy-img');
+				observer.unobserve(img);
+			};
 		}
 
 		const imgObserver = new IntersectionObserver(loadImage, {
@@ -33,6 +40,7 @@ function LazyImage({ fallback, src, alt, className, ...restProps }) {
 			src={fallback}
 			alt={alt}
 			ref={imgRef}
+			loading='lazy'
 		/>
 	);
 }

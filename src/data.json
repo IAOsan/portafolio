@@ -1,0 +1,149 @@
+{
+	"about": {
+		"heading": "Hola, mi nombre es Yaotzin",
+		"subHeading": "Frontend web developer",
+		"mainDescription": "Bienvenido a mi portafolio. Soy un aspirante a desarrollador Frontend con afinidad por crear experiencias agradables para los usuarios. A través de proyectos prácticos, he desarrollado habilidades en HTML, CSS, JS, así como en algunos frameworks de CSS como Bootstrap, Materialize y en frameworks de JavaScript como React. Este portafolio es una muestra que comparte mi viaje y aspiraciones en el desarrollo Frontend.",
+		"image": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/illustration.png?alt=media&token=eae60d13-e6c7-4a42-9457-a77c0156acc8",
+		"lazyImage": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/illustration-lazy.png?alt=media&token=3cc9245b-56c6-40c1-947b-f07b7b4b780e"
+	},
+	"skills": {
+		"title": "Habilidades",
+		"data": [
+			"HTML",
+			"CSS",
+			"JavaScript (JS)",
+			"TypeScript (TS)",
+			"React",
+			"Node.js",
+			"Express",
+			"Pug",
+			"Bootstrap",
+			"Materialize",
+			"Styled-components",
+			"Sass",
+			"MongoDB",
+			"Firebase",
+			"MySQL",
+			"Sequelize",
+			"Mongoose",
+			"Parcel",
+			"Webpack",
+			"Gulp",
+			"Figma",
+			"Photoshop",
+			"Git",
+			"GitHub",
+			"Vitest",
+			"Docker"
+		]
+	},
+	"social": [
+		{
+			"label": "Enlace a mi Github",
+			"path": "https://github.com/IAOsan",
+			"title": "Github"
+		},
+		{
+			"label": "Enlace a mi Linkedin",
+			"path": "https://www.linkedin.com/in/yaotzin-sanabria-7a43332a9",
+			"title": "Linkedin"
+		}
+	],
+	"projects": [
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/bienes-raices-layout.png?alt=media&token=ca3383e9-8109-4db7-a66b-1653ce18dba9",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/bienes-raices-layout-lazy.png?alt=media&token=d04fbd7a-6161-4d81-87d2-20cf1ca97513"
+			},
+			"title": "bienes raíces layout",
+			"stack": ["pug", "materialize", "sass"],
+			"codeLink": "https://github.com/IAOsan/bienes-raices-layout/",
+			"demoLink": "https://iaosan.github.io/bienes-raices-layout/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/fiverr.png?alt=media&token=3bd2afb3-4fe6-47d5-b53c-736d7cf539ec",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/fiverr-lazy.png?alt=media&token=221e367d-7154-4f4f-8b41-71a633513892"
+			},
+			"title": "fiverr layout",
+			"stack": ["pug", "bootstrap", "sass", "javascript"],
+			"codeLink": "https://github.com/IAOsan/frv-layout/",
+			"demoLink": "https://iaosan.github.io/frv-layout/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/spa.png?alt=media&token=243eb1c2-48f7-4c6f-8c1c-02407113cbd0",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/spa-lazy.png?alt=media&token=5c212811-3d96-4623-8b67-cef6aa9ab601"
+			},
+			"title": "spa multipágina",
+			"stack": ["pug", "bootstrap", "sass"],
+			"codeLink": "https://github.com/IAOsan/carolina-spa-layout/",
+			"demoLink": "https://iaosan.github.io/carolina-spa-layout/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/color-generator.png?alt=media&token=fd6da8d4-d3f5-4047-acb4-cde02c982acd",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/color-generator-lazy.png?alt=media&token=27ce93d5-bad2-4d4c-b729-a785f4f1bfd6"
+			},
+			"title": "color generator",
+			"stack": ["vite ", "react", "sass"],
+			"codeLink": "https://github.com/IAOsan/colors-generator/",
+			"demoLink": "https://iaosan.github.io/colors-generator/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/weather-app.png?alt=media&token=12813902-abb5-4a7c-b522-7c6cb3149f59",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/weather-app-lazy.png?alt=media&token=267b3167-44f7-4245-8cef-eba9514aa696"
+			},
+			"title": "weather app",
+			"stack": ["vite", "react", "sass"],
+			"codeLink": "https://github.com/IAOsan/weather-app/",
+			"demoLink": "https://iaosan.github.io/weather-app/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/todo-app.png?alt=media&token=255c8140-617f-42ca-92a8-2839298ccfc8",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/todo-app-lazy.png?alt=media&token=702d93a9-f95c-47fc-96ce-b3458478400c"
+			},
+			"title": "todo app",
+			"stack": ["vite", "react", "sass"],
+			"codeLink": "https://github.com/IAOsan/todo-app/",
+			"demoLink": "https://iaosan.github.io/todo-app/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/markdown-editor.png?alt=media&token=33771432-8581-4377-9144-1098148ce646",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/markdown-editor-lazy.png?alt=media&token=29436a3d-c3b7-4d57-b6f5-3084e8e19cd7"
+			},
+			"title": "markdown editor",
+			"stack": ["html", "typescript", "css"],
+			"codeLink": "https://github.com/IAOsan/markdown-editor/",
+			"demoLink": "https://iaosan.github.io/markdown-editor/"
+		},
+		{
+			"thumbnail": {
+				"lg": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/drawing-app.png?alt=media&token=1cda945a-73a3-4f29-b0f0-c45c172d94a8",
+				"lazy": "https://firebasestorage.googleapis.com/v0/b/portfolio-ca022.appspot.com/o/drawing-app-lazy.png?alt=media&token=7f96dfd5-c471-4b4a-b892-c9cdafe6813b"
+			},
+			"title": "drawing app",
+			"stack": ["html", "typescript", "css"],
+			"codeLink": "https://github.com/IAOsan/drawing-app/",
+			"demoLink": "https://iaosan.github.io/drawing-app/"
+		}
+	],
+	"sections": [
+		{
+			"path": "#home",
+			"label": "Inicio"
+		},
+		{
+			"path": "#projects",
+			"label": "Proyectos"
+		},
+		{
+			"path": "#contact",
+			"label": "Contacto"
+		}
+	],
+	"contactDescription": "Gracias por visitar mi portafolio, si estás interesado en discutir oportunidades de colaboración o compartir experiencias de aprendizaje, no dudes en ponerte en contacto. Puedes enviarme un correo electrónico llenando el formulario o encontrarme en GitHub o Linkedin"
+}

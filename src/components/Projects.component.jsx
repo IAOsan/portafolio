@@ -1,8 +1,10 @@
 import React from 'react';
 import Project from './Project.component';
-import { projects } from '../data';
+import { useAppContext } from '../context/App.context';
 
 function Projects() {
+	const { projects } = useAppContext();
+
 	return (
 		<section
 			id='projects'
@@ -11,12 +13,12 @@ function Projects() {
 			<div className='container'>
 				<h2 className='display-4 mb-60'>Proyectos</h2>
 				<div className='row'>
-					{projects.map((o) => (
+					{projects.map((p) => (
 						<div
-							key={o.id}
+							key={p.title}
 							className='col-md-6'
 						>
-							<Project {...o} />
+							<Project {...p} />
 						</div>
 					))}
 				</div>

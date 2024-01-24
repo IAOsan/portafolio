@@ -366,7 +366,7 @@
 		&:hover &__thumbnail {
 			img {
 				transform: scale(1.1) translateY(-6rem);
-				opacity: 0.6;
+				opacity: 0.5;
 			}
 		}
 		&__body {
@@ -406,6 +406,31 @@
 	&--sm &__link {
 		height: 2.4rem;
 		width: 2.4rem;
+	}
+}
+.skeleton {
+	&__item {
+		width: var(--itemWidth);
+		height: var(--itemHeight);
+		background: var(
+			--c-light-700
+		) !important; /* Customizable skeleton loader color */
+		color: rgba(0, 0, 0, 0) !important;
+		border-color: rgba(0, 0, 0, 0) !important;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor: wait;
+	}
+
+	&__item * {
+		visibility: hidden !important;
+	}
+
+	&__item:empty::after,
+	&__item *:empty::after {
+		content: '\00a0';
 	}
 }
 // .theme-switch {

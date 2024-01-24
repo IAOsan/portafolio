@@ -2,15 +2,16 @@ import React, { useRef, useState } from 'react';
 import Navbar, { NavbarLogo, NavbarToggler } from './common/Navbar.component';
 import Nav, { NavItem, NavLink } from './common/Nav.component';
 import useEventListener from '../hooks/useEventListener';
+import { useAppContext } from '../context/App.context';
 import { Logo } from '../icons';
 import { throttle, navigateToElement } from '../utils';
-import { sections } from '../data';
 
 const THROTTLE_TIME = 200;
 
 function Header() {
 	useEventListener('scroll', throttle(handleScroll, THROTTLE_TIME));
-	const [activeSection, setActiveSection] = useState('home');
+	const { sections } = useAppContext();
+	const [activeSection, setActiveSection] = useState('#home');
 	const [isNavVisible, setIsNavVisible] = useState(false);
 	const headerRef = useRef(null);
 	const sectionElements = useRef([]);
@@ -32,7 +33,7 @@ function Header() {
 		for (let i = 0; i < sectionElements.current.length; i++) {
 			const pageScroll = window.innerHeight + window.scrollY;
 			if (pageScroll >= sectionElementsOffset.current[i]) {
-				setActiveSection(sectionElements.current[i].id);
+				setActiveSection(`#${sectionElements.current[i].id}`);
 			}
 		}
 		// sticky navbar
@@ -67,23 +68,20 @@ function Header() {
 					className='rounded'
 					visible={isNavVisible}
 				>
-					{sections.map((o) => (
-						<NavItem key={o.id}>
+					{sections.map((s) => (
+						<NavItem key={s.path}>
 							<NavLink
 								onClick={handleNavigate}
-								href={o.path}
+								href={s.path}
 								className={
-									activeSection === o.path.slice(1)
-										? 'rounded active'
-										: 'rounded'
+									activeSection === s.path ? 'rounded active' : 'rounded'
 								}
 							>
-								{o.label}
+								{s.label}
 							</NavLink>
 						</NavItem>
 					))}
 				</Nav>
-				{/* <ThemeSwitch /> */}
 				<NavbarToggler
 					aria-controls='mainNav'
 					aria-label={`${isNavVisible ? 'Cerrar' : 'Abrir'} la navegación`}

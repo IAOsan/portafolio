@@ -106,8 +106,6 @@
 	padding: 2.4rem 0;
 }
 .about {
-	// opacity: 0;
-	// animation: slide-top 1.4s 0.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 	padding: pxToRem(104) 0 pxToRem(92);
 	&__image {
 		order: 1;
@@ -130,7 +128,6 @@
 	padding-top: pxToRem(64);
 }
 .projects {
-	// animation: aaa 1.4s 0.25s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 	padding: pxToRem(62) 0;
 	@include respond(768) {
 		padding: pxToRem(120) 0;
@@ -143,9 +140,6 @@
 	}
 }
 .header {
-	//
-	// animation: slide-down 1.4s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-	//
 	border-bottom: 0.2rem solid var(--c-light-600);
 	position: absolute;
 	transition: padding ease var(--tr-time);

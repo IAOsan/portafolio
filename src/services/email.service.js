@@ -1,4 +1,6 @@
-export const apiUrl = `https://formspree.io/f/${import.meta.env.VITE_FORM_ID}`;
+import { formID } from '../config';
+
+export const apiUrl = `https://formspree.io/f/${formID}`;
 
 async function send(values) {
 	try {
@@ -14,9 +16,7 @@ async function send(values) {
 		if (!req.ok) {
 			const err = new Error();
 			err.message = req.statusText;
-			err.errors = Object.hasOwn(res, 'errors')
-				? res['errors']
-				: undefined;
+			err.errors = Object.hasOwn(res, 'errors') ? res['errors'] : undefined;
 			throw err;
 		}
 	} catch (error) {

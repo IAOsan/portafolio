@@ -5,10 +5,10 @@ import LazyImage from './common/LazyImage.component';
 function Project({ thumbnail, title, stack, codeLink, demoLink }) {
 	return (
 		<article className='project-card rounded'>
-			<div className='project-card__thumbnail bg-color-light-900'>
+			<div className='project-card__thumbnail bg-color-light-700'>
 				<LazyImage
-					src={thumbnail.fullSize}
-					fallback={thumbnail.fallback}
+					src={thumbnail.lg}
+					fallback={thumbnail.lazy}
 				/>
 			</div>
 			<div className='project-card__body bg-color-light-500'>
@@ -41,8 +41,8 @@ function Project({ thumbnail, title, stack, codeLink, demoLink }) {
 
 Project.propTypes = {
 	thumbnail: PropTypes.shape({
-		fullSize: PropTypes.string.isRequired,
-		fallback: PropTypes.string.isRequired,
+		lg: PropTypes.string.isRequired,
+		lazy: PropTypes.string.isRequired,
 	}).isRequired,
 	title: PropTypes.string.isRequired,
 	stack: PropTypes.arrayOf(PropTypes.string).isRequired,

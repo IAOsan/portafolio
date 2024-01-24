@@ -1,11 +1,14 @@
 import React from 'react';
 import Button from './common/Button.component';
 import SocialList from './SocialList.component';
-import { getImageUrl, navigateToElement } from '../utils';
-import { heading, subHeading, mainDescription } from '../data';
-import { skills } from '../data';
+import LazyImage from './common/LazyImage.component';
+import { navigateToElement } from '../utils';
+import { useAppContext } from '../context/App.context';
 
 function AboutMe() {
+	const { about, skills } = useAppContext();
+	const { heading, subHeading, mainDescription, image, lazyImage } = about;
+
 	return (
 		<section
 			id='home'
@@ -33,19 +36,17 @@ function AboutMe() {
 						</div>
 					</div>
 					<div className='col-md-5 about__image flex-md flex-column flex-jc-c'>
-						<img
-							className='my-40'
-							src={getImageUrl('illustration.png')}
-							alt=''
-							data-testid='illustration'
+						<LazyImage
+							src={image}
+							fallback={lazyImage}
 						/>
 					</div>
 				</div>
-				<div className='skills'>
-					<div className='row'>
-						<div className='col'>
-							<h3 className='h3 mb-32'>Habilidades</h3>
-							{skills.map((s) => (
+				<div className='row'>
+					<div className='col-12'>
+						<div className='skills'>
+							<h3 className='h3 mb-32'>{skills.title}</h3>
+							{skills.data.map((s) => (
 								<small
 									key={s}
 									className='d-inline-block bg-color-light-600 color-light-900 rounded px-20 py-8 mr-16 mb-16'
