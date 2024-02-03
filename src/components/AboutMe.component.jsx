@@ -39,6 +39,7 @@ function AboutMe() {
 						<LazyImage
 							src={image}
 							fallback={lazyImage}
+							className='fluid-img'
 						/>
 					</div>
 				</div>

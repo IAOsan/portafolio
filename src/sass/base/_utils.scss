@@ -73,6 +73,11 @@
 		font-family: var(--heading-font);
 	}
 }
+.fluid-img {
+	height: auto;
+	max-width: 100%;
+	width: 100%;
+}
 .bg-color {
 	&-light-500 {
 		background-color: var(--c-light-500);
